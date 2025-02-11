@@ -26,13 +26,41 @@
     </header>
 
     <main>
-        <div id="seach-options">
-            <div id="flight">
-
-            </div> <!-- flight ----------------------->
-            <div id="flight-n-stay"></div> <!-- flight-n-stay ----------------------->
-            <div id="car-rental"></div> <!-- car-rental ----------------------->
-            <div id="stay"></div> <!-- stay ----------------------->
+        <ul id="search-options">
+            <li id="flight">
+                <a><img src="resources/img/icon/airport-departures-sing-svgrepo-com.svg" width="5em" alt="">Flüge</a>
+            </li> <!-- flight ----------------------->
+            
+            
+            <li id="flight-n-stay">
+                <a>Flug & Hotel</a>
+            </li> <!-- flight-n-stay ----------------------->
+            
+            
+            <li id="car-rental">
+                <a>Mietwagen</a>
+            </li> <!-- car-rental ----------------------->
+            
+            
+            <li id="stay">
+                <a>Hotel</a>
+            </li> <!-- stay ----------------------->
+            
+           
+        </ul>
+        <div id="search-content">
+            <section id="flight-section">
+                <form action="get">
+                    <select>
+                        <option>Hin- und Rückflug</option>
+                        <option>Hinflug</option>
+                          <option>Rückflug</option>
+                    </select>
+                </form>
+            </section>
+            <section id="flightStay-section"></section>
+            <section id="carRental-section"></section>
+            <section id="stay-section"></section>
         </div>
     </main>
 
