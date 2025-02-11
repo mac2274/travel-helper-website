@@ -1,0 +1,63 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+
+    header {
+    
+        display: flex;
+        justify-content: center;
+        align-items: start;
+
+        #header_container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            background: #fff;
+
+            h1 {
+                color: transparent;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                left: -100px;
+                top: 10px;
+            
+                a#logo {
+                    display: block;
+                }
+            }
+
+            ul#top-nav {
+                display: flex;
+                width: 100%;
+                justify-content: end;
+
+                li{
+                    list-style-type: none;
+
+                    a {
+                        text-decoration: none;
+                        color: #000;
+                        display: block;
+                        padding: 1em;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    } 
+
+    main {
+        width: 100%;
+        height: 40em;
+        background: url("/resources/img/josh-withers-qIyaZ9sPN5o-unsplash.jpg");
+        background-size: cover;
+        background-position: 50% 10%;
+    }
+}
