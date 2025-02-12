@@ -1,6 +1,4 @@
     main {
-        background: black;
-
         #main-pic {
             width: 90%;
             margin: 0 auto;
@@ -10,59 +8,61 @@
             background-position: 50% 40%;
         }
 
-        #search-options {
+        ul#search-options {
             width: 80%;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             padding: 0;
 
-                li {
-                    background: #fff;
-                    list-style-type: none;
-                    display: inline-flex;
-                    white-space: nowrap;
-                    width: 100%;
-                    margin: 0 2px;
+            li {
+                background: #fff;
+                list-style-type: none;
+                display: inline-flex;
+                white-space: nowrap;
+                width: 100%;
+                margin: 0 2px;
 
-                    a {
-                        text-decoration: none;
-                        display: block;
-                        padding: 1em;
-                        text-align: center;
+                a {
+                    text-decoration: none;
+                    display: block;
+                    padding: 1em;
+                    text-align: center;
                         
-                        img{
-                            width: 1.8em;
-                            padding-right: 0.5em;
-                        }
+                    img{
+                        width: 1.8em;
+                        padding-right: 0.5em;
                     }
-                }
-                #flight{
-                    margin-left: 0;
-                }
-                #stay{
-                    margin-right: 0;
                 }
             }
 
-            #search-content {
-                width: 80%;
-                display: flex;
-                justify-content: space-between;
-                margin: 0 auto;
+            #flight{
+                margin-left: 0;
+            }
+
+            #stay{
+                margin-right: 0;
+            }
+        }
+
+        div#search-content {
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+
+            section {
+                padding: 2em;
                 display: flex;
                 flex-direction: column;
-
-                section {
-                    background: violet;
-                    padding: 2em;
+                gap: 1em;
+                
+                .content-container{
                     display: flex;
-                    flex-direction: column;
-                    gap: 2em;
-                    
-                    .content-container{
-                        display: flex;
-                    }
+                    gap: 1em;
+                    align-items: center;
 
                     select, input {
                         border: none;
@@ -72,31 +72,38 @@
                     .container-width{
                         display: flex;
                         justify-content: space-between;
-                        width: 100%;
-
-                        input {
-                            width: 100%;
-                        }
                     }
 
-                    .input-container {
-                        display: flex;
-                        gap: 0.2em;
-                        padding: 0 1em;
+                        .input-container {
+                            display: flex;
+                            gap: 0.5em;
+                            width: 100%;
+                            align-items: center;
 
-                        .change-order{
-                            order: 2;
-                        }
+                            .change-order{
+                                order: 2;
+                            }
 
-                        input[type=date]{
-                            display: n;
+                            input {
+                                width: 100%;  
+                            }
+
+                            #date-label {
+                                white-space: nowrap;;
+                            }   
+                             
+                            input[type=submit]{                                background: #21b1b1;
+                                color: #fff;
+                                background: #21b1b1;
+                                width: 100%;
+                            }
                         }
                         
-                        input[type=submit]{
-                            background: #21b1b1;
-                            color: #fff;
+                        .no100{
+                            width: min-content;
+                            white-space: nowrap;
                         }
-                    }
                 }
             }
+        }
     }
