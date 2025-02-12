@@ -32,33 +32,54 @@
             <li id="flight">
                 <a><img src="resources/img/icon/airport-departures-sing-svgrepo-com.svg" alt="">Flüge</a>
             </li> <!-- flight ----------------------->
-            
-            
             <li id="flight-n-stay">
                 <a><img src="resources/img/icon/travel-svgrepo-com.svg" alt="">Flug & Hotel</a>
             </li> <!-- flight-n-stay ----------------------->
-            
-            
             <li id="car-rental">
                 <a><img src="resources/img/icon/car-svgrepo-com.svg" alt=""> Mietwagen</a>
             </li> <!-- car-rental ----------------------->
-            
-            
             <li id="stay">
                 <a><img src="resources/img/icon/bed-9-svgrepo-com.svg" alt=""> Hotel</a>
             </li> <!-- stay ----------------------->
             <!-- img nochnicht aligned -->
-           
         </ul>
+    
         <div id="search-content">
             <section id="flight-section">
-                <form action="get">
-                    <select>
-                        <option>Hin- und Rückflug</option>
-                        <option>Hinflug</option>
-                          <option>Rückflug</option>
-                    </select>
-                </form>
+                <div class="content-container">
+                    <form action="">
+                        <select>
+                            <option>Hin- und Rückflug</option>
+                            <option>Hinflug</option>
+                            <option>Rückflug</option>
+                        </select>
+                    </form>
+    
+                    <div class="input-container">
+                        <label class="change-order" for="checkbox_economy">Economy, 1 Reisende(r)</label>
+                        <input type="checkbox" id="checkbox_economy">
+                    </div>
+    
+                    <div class="input-container">
+                        <label class="change-order" for="nonstop">Nur Nonstop Flüge</label>
+                        <input type="checkbox" value="Economy, 1 Reisende(r)">
+                    </div>
+                </div>
+
+                <div class="content-container">
+                    <div class="input-container">
+                        <label for="flight-from">Von</label>
+                        <input type="text" id="from-flight" placeholder="Franfurt">
+                    </div>
+                    <div class="input-container">
+                        <label for="flight-to">Nach</label>
+                        <input type="text" placeholder="">
+                    </div>
+                    <div class="input-container">
+                        <label for="dates">Abflug - Rückflug</label>
+                        <input type="date">
+                    </div>
+                </div>
             </section>
             <section id="flightStay-section"></section>
             <section id="carRental-section"></section>
