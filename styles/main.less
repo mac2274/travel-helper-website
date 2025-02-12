@@ -23,7 +23,7 @@
                     display: inline-flex;
                     white-space: nowrap;
                     width: 100%;
-                    margin: 0 1px;
+                    margin: 0 2px;
 
                     a {
                         text-decoration: none;
@@ -36,6 +36,12 @@
                             padding-right: 0.5em;
                         }
                     }
+                }
+                #flight{
+                    margin-left: 0;
+                }
+                #stay{
+                    margin-right: 0;
                 }
             }
 
@@ -62,15 +68,33 @@
                         border: none;
                         padding: 0.5em;
                     }
-        
+
+                    .container-width{
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+
+                        input {
+                            width: 100%;
+                        }
+                    }
+
                     .input-container {
                         display: flex;
                         gap: 0.2em;
                         padding: 0 1em;
 
-
                         .change-order{
                             order: 2;
+                        }
+
+                        input[type=date]{
+                            display: n;
+                        }
+                        
+                        input[type=submit]{
+                            background: #21b1b1;
+                            color: #fff;
                         }
                     }
                 }
