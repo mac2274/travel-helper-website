@@ -97,7 +97,6 @@
                             display: flex;
                             gap: 0.5em;
                             width: 100%;
-                            align-items: center;
 
                             .change-order{
                                 order: 2;
@@ -105,25 +104,6 @@
 
                             .no-label{
                                 display: none;
-                            }
-                            
-                            //positioning of label in input - funktioniert nicht
-                            .flight-label{
-                                display: block;
-                                position: absolute;
-                                width: max-content;
-                                font-size: 0.8em;
-                            }
-
-                            #from-flight{
-                                position: relative;
-                                top: -0.5em;
-                                left: 0;
-                                width: 100%;
-                            }
-
-                            input {
-                                width: 100%;  
                             }
 
                             #date-label {
@@ -145,6 +125,28 @@
                             }
                         }
                         
+                        //positioning of label in input - codepen hilft
+                        .full-input {
+                            display: inline-block;
+                            padding: 3px;
+
+                            input{
+                                display: block;
+                                width: 100%;
+                                position: relative;
+                                left: -7px;
+                            }
+
+                            .flight-label{
+                                display: block;
+                                font-size: 0.8em;
+                            }
+
+                            label{
+                                display: block;
+                            }
+                        }
+
                         .no100{
                             width: min-content;
                             white-space: nowrap;
