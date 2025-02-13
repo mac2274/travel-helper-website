@@ -81,7 +81,7 @@
                     display: flex;
                     gap: 1em;
                     align-items: center;
-                    padding: 1em 0;
+                    padding: 0;
 
                     select, input {
                         border: none;
@@ -103,6 +103,25 @@
                                 order: 2;
                             }
 
+                            .no-label{
+                                display: none;
+                            }
+                            
+                            //positioning of label in input - funktioniert nicht
+                            .flight-label{
+                                display: block;
+                                position: absolute;
+                                width: max-content;
+                                font-size: 0.8em;
+                            }
+
+                            #from-flight{
+                                position: relative;
+                                top: -0.5em;
+                                left: 0;
+                                width: 100%;
+                            }
+
                             input {
                                 width: 100%;  
                             }
@@ -111,11 +130,18 @@
                                 white-space: nowrap;;
                             }   
                              
-                            input[type=submit]{                                background: #21b1b1;
+                            input[type=submit]{                                
+                                background: #21b1b1;
                                 color: #fff;
                                 background: #21b1b1;
                                 width: 100%;
                                 font-size: 1.1em;
+
+                                &:hover{
+                                    background: #fff;
+                                    color: #21b1b1;
+                                    transition: background 0.5s, color 0.5s;
+                                }
                             }
                         }
                         
