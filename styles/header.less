@@ -44,12 +44,20 @@ body {
                         display: block;
                         padding: 1em;
                         font-weight: bold;
+
+                        &:hover{
+                            background: #21b1b1;
+                            color: #fff;
+                            font-weight: bold;
+                            transition: color 0.5s, background 0.5s;
+                        }   
+                        }
                     }
                 }
             }
         }
     } 
-}
+
 
 @media screen and (max-width: 650px) {
     body header #header_container {
