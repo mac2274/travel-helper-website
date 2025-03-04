@@ -27,26 +27,24 @@
     </header>
 
     <main>
-        <div id="main-pic"></div>
-        <ul id="search-options">
-            <li id="flight">
-                <a><img src="resources/img/icon/airport-departures-sing-svgrepo-com.svg" alt="">Flüge</a>
-            </li> <!-- flight ----------------------->
-            <li id="flight-n-stay">
-                <a><img src="resources/img/icon/travel-svgrepo-com.svg" alt="">Flug & Hotel</a>
-            </li> <!-- flight-n-stay ----------------------->
-            <li id="car-rental">
-                <a><img src="resources/img/icon/car-svgrepo-com.svg" alt=""> Mietwagen</a>
-            </li> <!-- car-rental ----------------------->
-            <li id="stay">
-                <a><img src="resources/img/icon/bed-9-svgrepo-com.svg" alt=""> Hotel</a>
-            </li> <!-- stay ----------------------->
-            <!-- img nochnicht aligned -->
-        </ul>
-    
-        <div id="search-content">
-            <section id="flight-section">
-                <div class="content-container">
+        <div id="main-pic">
+            <ul id="search-options">
+                <li id="flight">
+                    <a><img src="resources/img/icon/airport-departures-sing-svgrepo-com.svg" alt="">Flüge</a>
+                </li> <!-- flight ----------------------->
+                <li id="flight-n-stay">
+                    <a><img src="resources/img/icon/travel-svgrepo-com.svg" alt="">Flug & Hotel</a>
+                </li> <!-- flight-n-stay ----------------------->
+                <li id="car-rental">
+                    <a><img src="resources/img/icon/car-svgrepo-com.svg" alt=""> Mietwagen</a>
+                </li> <!-- car-rental ----------------------->
+                <li id="stay">
+                    <a><img src="resources/img/icon/bed-9-svgrepo-com.svg" alt=""> Hotel</a>
+                </li> <!-- stay ----------------------->
+                <!-- img nochnicht aligned -->
+            </ul>
+            <div class="content-container">
+                <div class="order-1">
                     <form action="">
                         <select>
                             <option>Hin- und Rückflug</option>
@@ -55,38 +53,47 @@
                         </select>
                     </form>
                 </div>
-                <div class="content-container">    
-                    <div class="input-container no100 no-border order-2">
+                <div class="order-2">    
+                    <div class="input-container no100 no-border">
                         <label class="change-order" for="checkbox_economy">Economy, 1 Reisende(r)</label>
                         <input type="checkbox" id="checkbox_economy">
                     </div>
     
-                    <div class="input-container no100 no-border order-3">
+                    <div class="input-container no100 no-border">
                         <label class="change-order" for="nonstop">Nur Nonstop Flüge</label>
                         <input type="checkbox" value="Economy, 1 Reisende(r)">
                     </div>
                 </div>
 
-                <div class="content-container container-width">
-                    <div class="input-container full-input order-1">
+                <div class="container-width order-3">
+                    <div class="input-container full-input">
                         <label for="flight-from" class="flight-label no-label">Von</label>
                         <input type="text" id="from-flight" placeholder="Franfurt">
                     </div>
                 </div>
-                <div class="content-container">
-                    <div class="input-container full-input order-1">
+                <div class="order-4">
+                    <div class="input-container full-input">
                         <label for="flight-to" class="flight-label no-label">Nach</label>
                         <input type="text" placeholder="Nach">
                     </div>
-                    <div class="input-container order-1">
+                </div>
+                <div class="order-5">
+                    <div class="input-container">
                         <label for="dates" id="date-label">Abflug - Rückflug</label>
                         <input type="date" id="datePicker" placeholder="Bitte Datum wählen">
                     </div>
+                </div>
+                <div class="order-6">    
                     <div class="input-container">
                         <input type="submit" value="Suchen">
                     </div>
                 </div>
-                <div class="content-container article-container">
+            </div>
+        </div>
+        <div id="search-content">
+            <section id="flight-section">
+
+                <div class="article-container">
                     <article>
                         <div class="img-container">
                             <img src="resources/img/gints-gailis-Vi_YsiO0Kd8-unsplash.jpg" alt="">
@@ -107,7 +114,7 @@
                     </article>
                 </div>
             </section> <!-- flight-section ------------------------------------------------------->
-            <section id="flightStay-section">
+            <section id="flightStay-section" class="no-display">
                 <div class="content-container">
                     <div class="input-container">
                         <label for="flight-from-flightStay" class="flight-label no-label">Von</label>
@@ -144,7 +151,7 @@
                     </article>
                 </div>
             </section> <!-- flightStay-section ------------------------------------------------------->
-            <section id="carRental-section">
+            <section id="carRental-section" class="no-display">
                 <div class="content-container article-container">
                     <article>
                         <div class="img-container">
@@ -166,7 +173,7 @@
                     </article>
                 </div>
             </section> <!-- carRental-section ------------------------------------------------------->
-            <section id="stay-section">
+            <section id="stay-section" class="no-display">
                 <div class="content-container article-container">
                     <article>
                         <div class="img-container">
