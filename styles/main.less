@@ -1,4 +1,9 @@
 main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
     #main-pic {
         width: 90%;
         margin: 0 auto;
@@ -52,130 +57,120 @@ main {
                     font-size: 0.9em;                        
                     border: none;
 
-                        &:hover{
-                            background: #fff;
-                            color: #21b1b1;
-                            transition: background 0.5s, color 0.5s;
-                        }
-                    }
-                }
-                    
-                //positioning of label in input - codepen hilft
-                .full-input {
-                    display: inline-block;
-                    padding: 3px;
-
-                    input{                            display: block;
-                        position: relative;
-                        left: 0;
-                        padding: 0 1em;
-                    }
-
-                    .flight-label{
-                        display: block;
-                        font-size: 0.9em;
-                        margin-left: 1em;
-                    }
-
-                    label{
-                        display: block;
-                    }
-                }
-
-                .no100{
-                    width: min-content;
-                    white-space: nowrap;
-                }
-
-                .line-order{
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    gap: 1em;
-
-                
-                    .order-2{
-                        align-items: center;
-                        display: flex;
-                        gap: 1em;
-                    }
-                    
-                }  
-                .line-two{
-                    align-items: center;
-                }
-
-                .full-width{
-                    width: 100%;
-                }
-            }
-        }
-
-        ul#search-options {
-            width: 80%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            padding: 2em 0 0;
-
-            li {
-                background: #444343;
-                list-style-type: none;
-                display: inline;
-                white-space: nowrap;
-                width: 100%;
-                margin: 0 2px;
-
-                &:hover{
-                    background: #fff;
-                    transition: background 0.5s;
-                }
-
-                &:focus{
-                    background: #fff;
-                }
-
-                a {
-                    text-decoration: none;
-                    display: block;
-                    align-items: center;
-                    padding: 0.5em 1em;
-                    text-align: start;
-                    color: #fff;
-                    
-                    
                     &:hover{
-                        color: #21b1b1;
-                        font-weight: bold;
-                        transition: color 0.5s;
-                    }
-
-                    &:focus{
                         background: #fff;
-                    }
-
-                    img{
-                        width: 1.3em;
-                        padding-right: 0.5em;
-                        filter: invert(1);
-
-                        &:hover{
-                            filter: invert(1);
-                        }
+                        color: #21b1b1;
+                        transition: background 0.5s, color 0.5s;
                     }
                 }
             }
+                    
+            //positioning of label in input - codepen hilft
+            .full-input {
+                display: inline-block;
+                padding: 3px;
 
-            #flight{
-                margin-left: 0;
+                input{                            display: block;
+                    position: relative;
+                    left: 0;
+                    padding: 0 1em;
+                }
+
+                .flight-label{
+                    display: block;
+                    font-size: 0.9em;
+                    margin-left: 1em;
+                }
+
+                label{
+                    display: block; 
+                }    
             }
 
-            #stay{
-                margin-right: 0;
+            .no100{
+                width: min-content;
+                white-space: nowrap;
+            }
+
+            .line-order{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1em;
+
+                .order-2{
+                    align-items: center;
+                    display: flex;
+                    gap: 1em;
+                }
+            }  
+            
+            .line-two{
+                align-items: center;
+            }
+
+            .full-width{
+                width: 100%;
+            }
+        }
+    }
+
+    ul#search-options {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 2em 0 0;
+
+        li {
+            background: #444343;
+            list-style-type: none;
+            display: inline;
+            white-space: nowrap;
+            width: 100%;
+            margin: 0 2px;
+
+            &:hover{
+                background: #fff;
+                transition: background 0.5s;
+            }
+
+            a {
+                text-decoration: none;
+                display: block;
+                align-items: center;
+                padding: 0.5em 1em;
+                text-align: start;
+                color: #fff;
+                                    
+            &:hover{
+                color: #21b1b1;
+                font-weight: bold;
+                transition: color 0.5s;
+            }
+
+                img{
+                    width: 1.3em;
+                    padding-right: 0.5em;
+                    filter: invert(1);
+
+                    &:hover{
+                        filter: invert(1);
+                    }
+                }
             }
         }
 
-        div#search-content {
+        #flight{
+            margin-left: 0;
+        }
+
+        #stay{
+            margin-right: 0;
+        }
+    }
+
+    div#search-content {
             width: 70%;
             display: flex;
             flex-direction: column;
