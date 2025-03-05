@@ -220,14 +220,25 @@ main {
     a, p, label, input {
         font-size: 0.8em!important;
     }*/
+    main #main-pic .content-container .line-two {
+        justify-content: space-between;
+
+        .full-width{
+            width: none;
+        }
+    }
 }
 
 @media only screen and (max-width: 940px){
     main {
         #main-pic{
-            #search-option li{
-                a span{
-                    display: none;
+            ul#search-options{ 
+                li{
+                    a{ 
+                        .hide-text{
+                            display: none!important;
+                        }
+                    }
                 }
             }        
                 
