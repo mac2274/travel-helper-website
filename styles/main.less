@@ -1,16 +1,114 @@
-    main {
-        #main-pic {
-            width: 90%;
-            margin: 0 auto;
-            height: 30em;
-            background: url("/resources/img/jennifer-chen-pBLJBHbtv0c-unsplash.jpg") no-repeat;
-            background-size: cover;
-            background-position: 50% 40%;
+main {
+    #main-pic {
+        width: 90%;
+        margin: 0 auto;
+        height: 30em;
+        background: url("/resources/img/jennifer-chen-pBLJBHbtv0c-unsplash.jpg") no-repeat;
+        background-size: cover;
+        background-position: 50% 40%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: end;
+        padding-bottom: 3em;
+
+        .content-container{
             display: flex;
-            align-items: center;
             flex-direction: column;
-            justify-content: end;
-            padding-bottom: 3em;
+            gap: 1em;
+            padding: 0;
+            background: #fff;
+            width: 80%;
+
+            select, input {
+                border: none;
+                padding: 1em;
+                font-size: 0.9em;
+            }
+
+            .input-container {
+                display: flex;
+                align-items: center;
+                gap: 0.5em;
+                width: 100%;
+
+                .change-order{
+                    order: 2;
+                }
+
+                .no-label{
+                    display: none;
+                }
+
+                #date-label {
+                    white-space: nowrap;;
+                }   
+
+                input[type=submit]{                                
+                    background: #21b1b1;
+                    color: #fff;
+                    background: #21b1b1;
+                    width: 100%;                            
+                    font-size: 0.9em;                        
+                    border: none;
+
+                        &:hover{
+                            background: #fff;
+                            color: #21b1b1;
+                            transition: background 0.5s, color 0.5s;
+                        }
+                    }
+                }
+                    
+                //positioning of label in input - codepen hilft
+                .full-input {
+                    display: inline-block;
+                    padding: 3px;
+
+                    input{                            display: block;
+                        position: relative;
+                        left: 0;
+                        padding: 0 1em;
+                    }
+
+                    .flight-label{
+                        display: block;
+                        font-size: 0.9em;
+                        margin-left: 1em;
+                    }
+
+                    label{
+                        display: block;
+                    }
+                }
+
+                .no100{
+                    width: min-content;
+                    white-space: nowrap;
+                }
+
+                .line-order{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 1em;
+
+                
+                    .order-2{
+                        align-items: center;
+                        display: flex;
+                        gap: 1em;
+                    }
+                    
+                }  
+                .line-two{
+                    align-items: center;
+                }
+
+                .full-width{
+                    width: 100%;
+                }
+            }
         }
 
         ul#search-options {
@@ -33,6 +131,10 @@
                     transition: background 0.5s;
                 }
 
+                &:focus{
+                    background: #fff;
+                }
+
                 a {
                     text-decoration: none;
                     display: block;
@@ -41,10 +143,15 @@
                     text-align: start;
                     color: #fff;
                     
+                    
                     &:hover{
                         color: #21b1b1;
                         font-weight: bold;
                         transition: color 0.5s;
+                    }
+
+                    &:focus{
+                        background: #fff;
                     }
 
                     img{
@@ -69,150 +176,90 @@
         }
 
         div#search-content {
-            width: 80%;
-            display: flex;
-            justify-content: space-between;
-            margin: 0 auto;
+            width: 70%;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
 
             section {
                 padding: 2em;
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 gap: 1em;
+                margin: 0 auto;
                 
-                .content-container{
-                    display: flex;
-                    gap: 1em;
-                    align-items: center;
-                    padding: 0;
-
-                    select, input {
-                        border: none;
-                        padding: 0.5em;
-                        font-size: 1.1em;
-                    }
-
-                    .container-width{
-                        display: flex;
-                        justify-content: space-between;
-                    }
-
-                        .input-container {
-                            display: flex;
-                            gap: 0.5em;
-                            width: 100%;
-
-                            .change-order{
-                                order: 2;
-                            }
-
-                            .no-label{
-                                display: none;
-                            }
-
-                            #date-label {
-                                white-space: nowrap;;
-                            }   
-
-                            input[type=submit]{                                
-                                background: #21b1b1;
-                                color: #fff;
-                                background: #21b1b1;
-                                width: 100%;
-                                font-size: 1.1em;
-                                border: none;
-
-                                &:hover{
-                                    background: #fff;
-                                    color: #21b1b1;
-                                    transition: background 0.5s, color 0.5s;
-                                }
-                            }
-                        }
-                        
-                        //positioning of label in input - codepen hilft
-                        .full-input {
-                            display: inline-block;
-                            padding: 3px;
-
-                            input{
-                                display: block;
-                                position: relative;
-                                left: 0;
-                            }
-
-                            .flight-label{
-                                display: block;
-                                font-size: 1em;
-                                margin-left: 0.5em;
-                            }
-
-                            label{
-                                display: block;
-                            }
-                        }
-
-                        .no100{
-                            width: min-content;
-                            white-space: nowrap;
-                        }
-                }
-
                 .article-container{
                     display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
                     align-items: start;
-                }
+                    gap: 1em;
 
-                article{
-                    width: 100%;
-                    
-                    .img-container{
-
-                        img{
-                            width: 100%;
-                            height: auto;
+                    article{
+                        display: flex;
+                        flex-direction: column;
+                        
+                        .img-container, .text-container{
+                        
+                            img{
+                                width: 400px;
+                            }
                         }
                     }
                 }
             }
-        }
     }
+}
 
-@media screen and (max-width: 800px){
-    #main-pic .content-container {
+@media only screen and (max-width: 1060px){
+    h2{
+        font-size: 1em;
+    }
+    
+    a, p, label, input {
+        font-size: 0.8em!important;
+    }
+}
 
-        width: 80%;
+@media only screen and (max-width: 950px){
+    main ul#search-option{
+        li a {
+            
+            img{
+            display: none;
 
-    display: grid;
+    #main-pic        
+                .content-container{
+                    flex-direction: column;
+                    align-items: start;
+                    width: 100%;
 
-        .content-container{
-            flex-direction: column;
-            align-items: start;
-            width: 100%;
+                    .input-container{
+                        border: 1px solid #444343;
+                    }
 
-            .input-container{
-                border: 1px solid #444343;
+                    .no-border{
+                        border: none;
+                    }
+                }    
+
+                .order-2{
+                    order: 5;
+                }
+
+                .order-6{
+                    order: 6;
+                    width: 100%;
+                    
+                }
+
             }
 
-            .no-border{
-                border: none;
+            .no-display{
+                display: none!important;
             }
         }    
-
-        .order-2{
-            order: 5;
-        }
-
-        .order-6{
-            order: 6;
-            width: 100%;
-            
-        }
-
     }
-    .no-display{
-        display: none!important;
-    }
-}    
+}

@@ -30,7 +30,7 @@
         <div id="main-pic">
             <ul id="search-options">
                 <li id="flight">
-                    <a><img src="resources/img/icon/airport-departures-sing-svgrepo-com.svg" alt="">Flüge</a>
+                    <a focus><img src="resources/img/icon/airport-departures-sing-svgrepo-com.svg" alt="">Flüge</a>
                 </li> <!-- flight ----------------------->
                 <li id="flight-n-stay">
                     <a><img src="resources/img/icon/travel-svgrepo-com.svg" alt="">Flug & Hotel</a>
@@ -44,55 +44,57 @@
                 <!-- img nochnicht aligned -->
             </ul>
             <div class="content-container">
-                <div class="order-1">
-                    <form action="">
-                        <select>
-                            <option>Hin- und Rückflug</option>
-                            <option>Hinflug</option>
-                            <option>Rückflug</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="order-2">    
-                    <div class="input-container no100 no-border">
-                        <label class="change-order" for="checkbox_economy">Economy, 1 Reisende(r)</label>
-                        <input type="checkbox" id="checkbox_economy">
+                <div class="line-order">
+                    <div class="order-1">
+                        <form action="">
+                            <select>
+                                <option>Hin- und Rückflug</option>
+                                <option>Hinflug</option>
+                                <option>Rückflug</option>
+                            </select>
+                        </form>
                     </div>
-    
-                    <div class="input-container no100 no-border">
-                        <label class="change-order" for="nonstop">Nur Nonstop Flüge</label>
-                        <input type="checkbox" value="Economy, 1 Reisende(r)">
-                    </div>
-                </div>
-
-                <div class="container-width order-3">
-                    <div class="input-container full-input">
-                        <label for="flight-from" class="flight-label no-label">Von</label>
-                        <input type="text" id="from-flight" placeholder="Franfurt">
+                    <div class="order-2">    
+                        <div class="input-container no100 no-border">
+                            <label class="change-order" for="checkbox_economy">Economy, 1 Reisende(r)</label>
+                            <input type="checkbox" id="checkbox_economy">
+                        </div>
+        
+                        <div class="input-container no100 no-border">
+                            <label class="change-order" for="nonstop">Nur Nonstop Flüge</label>
+                            <input type="checkbox" value="Economy, 1 Reisende(r)">
+                        </div>
                     </div>
                 </div>
-                <div class="order-4">
-                    <div class="input-container full-input">
-                        <label for="flight-to" class="flight-label no-label">Nach</label>
-                        <input type="text" placeholder="Nach">
+                <div class="line-order line-two">
+                    <div class="container-width order-3 full-width">
+                        <div class="input-container full-input">
+                            <label for="flight-from" class="flight-label no-label">Von</label>
+                            <input type="text" id="from-flight" placeholder="Franfurt">
+                        </div>
                     </div>
-                </div>
-                <div class="order-5">
-                    <div class="input-container">
-                        <label for="dates" id="date-label">Abflug - Rückflug</label>
-                        <input type="date" id="datePicker" placeholder="Bitte Datum wählen">
+                    <div class="order-4 full-width">
+                        <div class="input-container full-input">
+                            <label for="flight-to" class="flight-label no-label">Nach</label>
+                            <input type="text" placeholder="Nach"> 
+                        </div>
                     </div>
-                </div>
-                <div class="order-6">    
-                    <div class="input-container">
-                        <input type="submit" value="Suchen">
+                    <div class="order-5 full-width">
+                        <div class="input-container">
+                            <label for="dates" id="date-label">Abflug - Rückflug</label>
+                            <input type="date" id="datePicker" placeholder="Bitte Datum wählen">
+                        </div>
+                    </div>
+                    <div class="order-6 full-width">    
+                        <div class="input-container">
+                            <input type="submit" value="Suchen">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div id="search-content">
             <section id="flight-section">
-
                 <div class="article-container">
                     <article>
                         <div class="img-container">
@@ -109,22 +111,13 @@
                         </div>
                         <div class="text-container">
                             <p class="article-theme">DBE Travel Briefing</p>
-                            <h2>Profifieren Sie vom Reseleitfade nmit nützlichen Tipps</h2>
+                            <h2>Profifieren Sie vom Reseleitfade mit nützlichen Tipps</h2>
                         </div>
                     </article>
                 </div>
             </section> <!-- flight-section ------------------------------------------------------->
             <section id="flightStay-section" class="no-display">
-                <div class="content-container">
-                    <div class="input-container">
-                        <label for="flight-from-flightStay" class="flight-label no-label">Von</label>
-                        <input type="text" id="flight-from-flightStay" placeholder="Von">
-                    </div>
-                    <div class="input-container">
-                        <label for="flight-to" class="no-label">Nach</label>
-                        <input type="text" placeholder="Nach">
-                    </div>
-                </div>
+    
                 <div class="content-container">
                     <div class="input-container">
 
