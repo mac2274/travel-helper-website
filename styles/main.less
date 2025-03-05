@@ -137,8 +137,9 @@ main {
 
             a {
                 text-decoration: none;
-                display: block;
+                display: flex;
                 align-items: center;
+                justify-content: center;
                 padding: 0.5em 1em;
                 text-align: start;
                 color: #fff;
@@ -170,91 +171,91 @@ main {
         }
     }
 
-    div#search-content {
-            width: 70%;
+    #search-content {
+        padding: 2em 0;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        section {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: center;
-
-            section {
-                padding: 2em;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 1em;
-                margin: 0 auto;
+            justify-content: center;
+            gap: 1em;
                 
-                .article-container{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: start;
-                    gap: 1em;
+            .article-container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: start;
+                gap: 1em;
+                width: 80%;
 
-                    article{
-                        display: flex;
-                        flex-direction: column;
+                article{
+                    display: flex;
+                    flex-direction: column;            
+                    width: 100%;
                         
-                        .img-container, .text-container{
+                    .img-container, .text-container{
                         
-                            img{
-                                width: 400px;
-                            }
+                        img{
+                            width: 100%;
                         }
                     }
                 }
             }
+        }
     }
 }
 
 @media only screen and (max-width: 1060px){
-    h2{
+    /*h2{
         font-size: 1em;
     }
     
     a, p, label, input {
         font-size: 0.8em!important;
-    }
+    }*/
 }
 
-@media only screen and (max-width: 950px){
-    main ul#search-option{
-        li a {
-            
-            img{
-            display: none;
+@media only screen and (max-width: 940px){
+    main {
+        #main-pic{
+            #search-option li{
+                a span{
+                    display: none;
+                }
+            }        
+                
+            .content-container{
+                flex-direction: column;
+                align-items: start;
+                width: 100%;
 
-    #main-pic        
-                .content-container{
-                    flex-direction: column;
-                    align-items: start;
-                    width: 100%;
-
-                    .input-container{
-                        border: 1px solid #444343;
-                    }
-
-                    .no-border{
-                        border: none;
-                    }
-                }    
-
-                .order-2{
-                    order: 5;
+                .input-container{
+                    border: 1px solid #444343;
                 }
 
-                .order-6{
-                    order: 6;
-                    width: 100%;
-                    
-                }
+                .no-border{
+                    border: none;                    }
+            }    
 
+            .order-2{
+                order: 5;
             }
 
-            .no-display{
-                display: none!important;
+            .order-6{
+                order: 6;
+                width: 100%;                    
             }
-        }    
-    }
+        }
+
+        .no-display{
+            display: none!important;
+        }
+    }        
 }
