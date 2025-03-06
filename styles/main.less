@@ -128,6 +128,7 @@ main {
             white-space: nowrap;
             width: 100%;
             margin: 0 2px;
+            padding: 1em;
 
             &:hover{
                 background: #fff;
@@ -160,15 +161,28 @@ main {
             }
 
             .icon{
-                width: 1.3em;
-                height: auto;
-                padding-right: 0.5em;
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                background-size: 20%;
+                filter: invert(1);
             }
             
             .flight-icon{
-                background-image: url('resources/img/icon/airport-departures-sing-svgrepo-com.svg');
+                background-image: url("/resources/img/icon/airport-departures-sing-svgrepo-com.svg");
+            }
+
+            .flightNStay-icon{
+                background-image: url("/resources/img/icon/travel-svgrepo-com.svg");
+            }
+
+            .car-icon{
+                background-image: url("/resources/img/icon/car-svgrepo-com.svg");
+            }
+            .stay-icon{
+                background-image: url("/resources/img/icon/bed-9-svgrepo-com.svg");
             }
         }
+
 
         #flight{
             margin-left: 0;
