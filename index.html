@@ -28,29 +28,24 @@
 
     <main>
         <div id="main-pic">
-            <ul id="search-options">
-                <li id="flight">
-                    <a class="icon flight-icon">
-                        <span class="hide-text">Flüge</span>
-                    </a>
-                </li> <!-- flight ----------------------->
-                <li id="flight-n-stay">
-                    <a class="icon flightNStay-icon" >
-                        <span class="hide-text">Flug & Hotel</span>
-                    </a>
-                </li> <!-- flight-n-stay ----------------------->
-                <li id="car-rental">
-                    <a class="icon car-icon">
-                        <span class="hide-text">Mietwagen</span>
-                    </a>
-                </li> <!-- car-rental ----------------------->
-                <li id="stay">
-                    <a class="icon stay-icon">
-                        <span class="hide-text">Hotel</span>
-                    </a>
-                </li> <!-- stay ----------------------->
-                <!-- img nochnicht aligned -->
-            </ul>
+            <div id="search-options">
+                <div class="input-container">
+                    <label for="flight"></label>
+                    <input type="radio" id="flight" name="option" value="Flüge" class="icon flight-icon hide-text" checked>
+                </div>
+                    <div class="input-container">
+                        <label for="flight-n-stay"></label>
+                    <input type="radio" id="flight-n-stay" name="option" class="icon flightNStay-icon hide-text" value="Flug & Hotel">
+                    </div>
+                    <div class="input-container">
+                        <label for="car-rental"></label for>
+                            <input type="radio" id="car-rental" name="option" class="icon car-icon hide-text" value="Mietwagen">
+                    </div>
+                    <div class="input-container">
+                        <label for="stay"></label>
+                        <input type="radio" id="stay" name="option" class="icon stay-icon hide-text" value="Hotel">
+                    </div>
+                </div>
             <div class="content-container">
                 <div class="line-order">
                     <div class="order-1">

@@ -117,16 +117,15 @@ main {
         }
     }
 
-    ul#search-options {
+    #search-options {
         width: 80%;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
         padding: 2em 0 0;
 
-        li {
+        label {
             background: #444343;
-            list-style-type: none;
             display: inline;
             white-space: nowrap;
             width: 100%;
@@ -137,11 +136,17 @@ main {
                 background: #fff;
                 transition: background 0.5s;
             }
+    
+            input[type="radio"]{
+                display: none;
+                padding: 1.5em 1em 1.5em 4em;
+                border: none;
+            }
 
-            a {
-                text-decoration: none;
-                display: flex;
-                padding: 1.5em 1em;
+            input[type="radio"]:checked{
+                display: block;
+            
+
 
                 &:hover{
                     color: #21b1b1;
@@ -163,11 +168,12 @@ main {
             
             .flight-icon{
                 background-image: url("/resources/img/icon/departures-sing-svgrepo-com.svg");
-                background-size: 12%!important;
-                background-repeat: no-repeat!important;
 
                 &:hover{
                     background: url("/resources/img/icon/departures-dbeColored.svg");
+                    background-position: 20px 50%;
+                    background-repeat: no-repeat;
+                    background-size: 12%;
                 }
             }
 
