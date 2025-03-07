@@ -131,36 +131,34 @@ main {
             label {
                 background: #444343;
                 color: #fff;
-                display: inline;
+                display: flex;
                 white-space: nowrap;
                 width: 100%;
                 margin: 0;
+                padding: 1em 1.1em;
 
                 &:hover{
                     background: #fff;
                     transition: background 0.5s;
                 }
         
+                span{
+                    margin-left: 3em;
+                }
+
                 /* hides radio buttons*/
                 input[type="radio"]{
                     display: none;
                     border: none;
-                }
-               
+                }              
 
                 input[type="radio"]:checked .content-container{
                     display: block;
-                
-
 
                     &:hover{
                         color: #21b1b1;
                         filter: invert(0);
                         transition: color 0.5s;
-                    }
-
-                    span{
-                        margin-left: 3em;
                     }
                 }
 
@@ -204,10 +202,6 @@ main {
                         background-image: url("/resources/img/icon/bed-dbeColored.svg");
                     }
                 }
-            }
-
-            .tabs-label{
-                padding: 1em 1.1em;
             }
         }
 
