@@ -28,25 +28,29 @@
 
     <main>
         <div id="main-pic">
-            <div id="search-options">
+            <div id="search-options"> <!-- tabs ------------------------------------------------------>
                 <div class="input-container">
-                    <label for="flight"></label>
-                    <input type="radio" id="flight" name="option" value="Flüge" class="icon flight-icon hide-text" checked>
+                    <label for="flight" class="tabs-label">Flüge
+                        <input type="radio" id="flight" name="option" class="icon flight-icon hide-text" checked>
+                    </label>
                 </div>
-                    <div class="input-container">
-                        <label for="flight-n-stay"></label>
-                    <input type="radio" id="flight-n-stay" name="option" class="icon flightNStay-icon hide-text" value="Flug & Hotel">
-                    </div>
-                    <div class="input-container">
-                        <label for="car-rental"></label for>
-                            <input type="radio" id="car-rental" name="option" class="icon car-icon hide-text" value="Mietwagen">
-                    </div>
-                    <div class="input-container">
-                        <label for="stay"></label>
-                        <input type="radio" id="stay" name="option" class="icon stay-icon hide-text" value="Hotel">
-                    </div>
+                <div class="input-container">
+                    <label for="flight-n-stay" class="tabs-label">Flug & Hotel
+                        <input type="radio" id="flight-n-stay" name="option" class="icon flightNStay-icon hide-text tabs-radio">
+                    </label>    
                 </div>
-            <div class="content-container">
+                <div class="input-container">
+                    <label for="car-rental" class="tabs-label">Mietwagen
+                        <input type="radio" id="car-rental" name="option" class="icon car-icon hide-text">   
+                    </label>                 
+                </div>
+                <div class="input-container">
+                    <label for="stay" class="tabs-label">Hotel
+                        <input type="radio" id="stay" name="option" class="icon stay-icon hide-text">
+                    </label>
+                </div>
+            </div>
+            <div class="content-container"> <!-- search of tab1 #flight-->
                 <div class="line-order">
                     <div class="order-1">
                         <form action="">
@@ -96,7 +100,7 @@
                 </div>
             </div>
         </div>
-        <div id="search-content">
+        <div id="search-content"> <!-- content of tab1 #flight -->
             <section id="flight-section">
                 <div class="article-container">
                     <article>

@@ -124,80 +124,90 @@ main {
         justify-content: space-between;
         padding: 2em 0 0;
 
-        label {
-            background: #444343;
-            display: inline;
-            white-space: nowrap;
+        .input-container{
+            display: flex;
             width: 100%;
-            margin: 0 ;
-            padding: 0em;
-
-            &:hover{
-                background: #fff;
-                transition: background 0.5s;
-            }
-    
-            input[type="radio"]{
-                display: none;
-                padding: 1.5em 1em 1.5em 4em;
-                border: none;
-            }
-
-            input[type="radio"]:checked{
-                display: block;
-            
-
+        
+            label {
+                background: #444343;
+                color: #fff;
+                display: inline;
+                white-space: nowrap;
+                width: 100%;
+                margin: 0;
 
                 &:hover{
-                    color: #21b1b1;
-                    filter: invert(0);
-                    transition: color 0.5s;
+                    background: #fff;
+                    transition: background 0.5s;
                 }
-
-                span{
-                    margin-left: 3em;
+        
+                /* hides radio buttons*/
+                input[type="radio"]{
+                    display: none;
+                    border: none;
                 }
-            }
+               
 
-            .icon{
-                background-repeat: no-repeat;
-                background-position: 20px 50%;
-                background-size: 12%;
-                filter: invert(1);
-            }
-            
-            .flight-icon{
-                background-image: url("/resources/img/icon/departures-sing-svgrepo-com.svg");
-
-                &:hover{
-                    background: url("/resources/img/icon/departures-dbeColored.svg");
-                    background-position: 20px 50%;
-                    background-repeat: no-repeat;
-                    background-size: 12%;
-                }
-            }
-
-            .flightNStay-icon{
-                background-image: url("/resources/img/icon/travel-svgrepo-com.svg");
-            
-                &:hover{
-                    background-image: url("/resources/img/icon/travel-dbeColored.svg");
-                }
-            }
-
-            .car-icon{
-                background-image: url("/resources/img/icon/car-svgrepo-com.svg");
-
-                &:hover{
-                    background-image: url("/resources/img/icon/car-dbeColored.svg");
-                }
-            }
-            .stay-icon{
-                background-image: url("/resources/img/icon/bed-svgrepo-com.svg");
+                input[type="radio"]:checked .content-container{
+                    display: block;
                 
-                &:hover{
-                    background-image: url("/resources/img/icon/bed-dbeColored.svg");
+
+
+                    &:hover{
+                        color: #21b1b1;
+                        filter: invert(0);
+                        transition: color 0.5s;
+                    }
+
+                    span{
+                        margin-left: 3em;
+                    }
                 }
+
+                .icon{
+                    background-repeat: no-repeat;
+                    background-position: 20px 50%;
+                    background-size: 12%;
+                    filter: invert(1);
+                }
+                
+                .flight-icon{
+                    background-image: url("/resources/img/icon/departures-sing-svgrepo-com.svg");
+
+                    &:hover{
+                        background: url("/resources/img/icon/departures-dbeColored.svg");
+                        background-position: 20px 50%;
+                        background-repeat: no-repeat;
+                        background-size: 12%;
+                    }
+                }
+
+                .flightNStay-icon{
+                    background-image: url("/resources/img/icon/travel-svgrepo-com.svg");
+                
+                    &:hover{
+                        background-image: url("/resources/img/icon/travel-dbeColored.svg");
+                    }
+                }
+
+                .car-icon{
+                    background-image: url("/resources/img/icon/car-svgrepo-com.svg");
+
+                    &:hover{
+                        background-image: url("/resources/img/icon/car-dbeColored.svg");
+                    }
+                }
+                .stay-icon{
+                    background-image: url("/resources/img/icon/bed-svgrepo-com.svg");
+                    
+                    &:hover{
+                        background-image: url("/resources/img/icon/bed-dbeColored.svg");
+                    }
+                }
+            }
+
+            .tabs-label{
+                padding: 1em 1.1em;
             }
         }
 
