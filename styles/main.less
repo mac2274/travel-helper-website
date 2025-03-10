@@ -126,6 +126,7 @@ main {
 
         .input-container{
             display: flex;
+            align-items: center;
             width: 100%;
         
             label {
@@ -139,11 +140,64 @@ main {
 
                 &:hover{
                     background: #fff;
-                    transition: background 0.5s;
+                    color: #21b1b1;
+                    transition: background 0.5s, color 0.3s;
                 }
         
-                span{
-                    margin-left: 3em;
+                .icon{
+                    background-repeat: no-repeat;
+                    background-position: 30% 50%;
+                    background-size: contain;
+                    filter: invert(1);
+                    width: 100%;
+                    height: 2em;
+                }
+                
+
+                span.icon-span{
+                    margin-left: 2em;
+                    display: flex;
+                    align-items: center;      
+                    
+                    &::before{
+                        content: "";
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        width: 2em;
+                        height: 2em;
+                        position: relative;
+                        top: 0em;
+                        left: -1em;
+                        display: block;
+                        filter: invert(1);
+                    }
+                }
+
+                .travel-icon{
+                    &::before{
+                        background: url("/resources/img/icon/travel-svgrepo-com.svg");
+
+                    }
+
+                 
+                }
+
+                .flight-icon{
+                    &::before{
+                        background: url("/resources/img/icon/departures-sing-svgrepo-com.svg");
+                    }
+                }
+              
+                .hotel-icon{
+                    &::before{
+                        background: url("/resources/img/icon/bed-svgrepo-com.svg");
+                    }
+                }
+
+                .car-icon{
+                    &::before{
+                        background: url("/resources/img/icon/car-svgrepo-com.svg");
+                    }
                 }
 
                 /* hides radio buttons*/
@@ -159,47 +213,6 @@ main {
                         color: #21b1b1;
                         filter: invert(0);
                         transition: color 0.5s;
-                    }
-                }
-
-                .icon{
-                    background-repeat: no-repeat;
-                    background-position: 20px 50%;
-                    background-size: 12%;
-                    filter: invert(1);
-                }
-                
-                .flight-icon{
-                    background-image: url("/resources/img/icon/departures-sing-svgrepo-com.svg");
-
-                    &:hover{
-                        background: url("/resources/img/icon/departures-dbeColored.svg");
-                        background-position: 20px 50%;
-                        background-repeat: no-repeat;
-                        background-size: 12%;
-                    }
-                }
-
-                .flightNStay-icon{
-                    background-image: url("/resources/img/icon/travel-svgrepo-com.svg");
-                
-                    &:hover{
-                        background-image: url("/resources/img/icon/travel-dbeColored.svg");
-                    }
-                }
-
-                .car-icon{
-                    background-image: url("/resources/img/icon/car-svgrepo-com.svg");
-
-                    &:hover{
-                        background-image: url("/resources/img/icon/car-dbeColored.svg");
-                    }
-                }
-                .stay-icon{
-                    background-image: url("/resources/img/icon/bed-svgrepo-com.svg");
-                    
-                    &:hover{
-                        background-image: url("/resources/img/icon/bed-dbeColored.svg");
                     }
                 }
             }
