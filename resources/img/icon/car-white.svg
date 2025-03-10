@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   fill="currentfill"
+   width="800"
+   height="800"
+   viewBox="-4 0 32 32"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="car-svgrepo-com.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050" />
+  <title
+     id="title1">car</title>
+  <path
+     d="m 19.938,7.188 3.563,7.156 c 0.063,0.094 0.094,0.219 0.125,0.313 0.219,0.563 0.375,1.344 0.375,1.844 v 3.406 c 0,1.063 -0.719,1.938 -1.719,2.188 v 2 c 0,0.969 -0.781,1.719 -1.719,1.719 -0.969,0 -1.719,-0.75 -1.719,-1.719 V 22.157 H 5.156 v 1.938 c 0,0.969 -0.75,1.719 -1.719,1.719 -0.938,0 -1.719,-0.75 -1.719,-1.719 v -2 c -1,-0.25 -1.719,-1.125 -1.719,-2.188 v -3.406 c 0,-0.5 0.156,-1.281 0.375,-1.844 0.031,-0.094 0.063,-0.219 0.125,-0.313 L 4.062,7.188 C 4.343,6.657 5.093,6.157 5.718,6.157 h 12.563 c 0.625,0 1.375,0.5 1.656,1.031 z M 5.531,9.344 3.625,13.688 c -0.094,0.156 -0.094,0.344 -0.094,0.469 h 16.938 c 0,-0.125 0,-0.313 -0.094,-0.469 L 18.469,9.344 c -0.25,-0.563 -1,-1.063 -1.594,-1.063 h -9.75 c -0.594,0 -1.344,0.5 -1.594,1.063 z M 4.688,19.906 c 1,0 1.781,-0.813 1.781,-1.844 0,-1 -0.781,-1.781 -1.781,-1.781 -1,0 -1.844,0.781 -1.844,1.781 0,1.031 0.844,1.844 1.844,1.844 z m 14.625,0 c 1,0 1.844,-0.813 1.844,-1.844 0,-1 -0.844,-1.781 -1.844,-1.781 -1,0 -1.781,0.781 -1.781,1.781 0,1.031 0.781,1.844 1.781,1.844 z"
+     id="path1"
+     style="fill:#ffffff" />
+</svg>

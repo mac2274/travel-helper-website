@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   height="800"
+   width="800"
+   version="1.1"
+   id="_x32_"
+   viewBox="0 0 512 512"
+   xml:space="preserve"
+   sodipodi:docname="bed-svgrepo-com.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs1" /><sodipodi:namedview
+   id="namedview1"
+   pagecolor="#505050"
+   bordercolor="#eeeeee"
+   borderopacity="1"
+   inkscape:showpageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#505050" />
+<style
+   type="text/css"
+   id="style1">
+	.st0{fill=&quot;currentColor&quot;;}
+</style>
+<g
+   id="g1"
+   style="fill:#ffffff">
+	<polygon
+   class="st0"
+   points="0,423.869 61.549,423.869 61.549,339.934 450.442,339.934 450.442,423.869 511.992,423.869 511.992,339.934 512,339.934 512,267.188 61.549,267.188 61.549,88.131 0,88.131 "
+   id="polygon1"
+   style="fill:#ffffff" />
+	<path
+   class="st0"
+   d="M 459.656,146.18 H 237.82 v 87.434 H 512 v -35.09 c 0,-28.909 -23.434,-52.344 -52.344,-52.344 z"
+   id="path1"
+   style="fill:#ffffff" />
+	<circle
+   class="st0"
+   cx="139.541"
+   cy="191.992"
+   r="47.91"
+   id="circle1"
+   style="fill:#ffffff" />
+</g>
+</svg>
