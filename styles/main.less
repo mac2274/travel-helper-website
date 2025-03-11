@@ -205,7 +205,7 @@ main {
                 }
 
                 .tabs-radio{
-                    /*display: none;*/
+                    display: none;
                 }
             }
 
@@ -259,7 +259,15 @@ main {
                 }
             }
         }
+
+        .tabs-content{
+            display: none;
+        }
     }
+}
+
+main #main-pic #search-options .input-container label .tabs-radio:checked+.flight-content {
+    display: none;
 }
 
 @media only screen and (max-width: 1060px){
@@ -318,9 +326,7 @@ main {
 
 @media only screen and (max-width: 940px){
     main {
-        .no-display{
-            display: none!important;
-        }
+     
     }        
 }
 
@@ -409,10 +415,6 @@ main {
 
             a {
                 justify-content: center;
-
-                .hide-text{
-                    display: none!important;
-                }
             }
         }
 
