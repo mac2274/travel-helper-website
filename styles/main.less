@@ -17,6 +17,116 @@ main {
         justify-content: end;
         padding-bottom: 3em;
 
+        #search-options {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 2em 0 0;
+    
+            .input-container{
+                display: flex;
+                align-items: center;
+                width: 100%;
+            
+                label {
+                    background: #444343;
+                    color: #fff;
+                    display: flex;
+                    white-space: nowrap;
+                    width: 100%;
+                    margin: 0;
+                    padding: 1em 1.1em;
+    
+                    &:hover{
+                        background: #fff;
+                        color: #21b1b1;
+                        transition: background 0.5s, color 0.3s;
+                    }
+                    
+                    span.icon-span{
+                        margin-left: 2em;
+                        display: flex;
+                        align-items: center;      
+                        
+                        &::before{
+                            content: "";
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            width: 2em;
+                            height: 2em;
+                            position: relative;
+                            top: 0em;
+                            left: -1em;
+                            display: block;
+                            filter: invert(1);
+                        }
+                    }
+    
+                    .flight-span-icon{
+                        &::before{
+                            background: url("/resources/img/icon/departures-sing-svgrepo-com.svg");
+                        }
+                    }
+    
+                    .travel-span-icon{
+                        &::before{
+                            background: url("/resources/img/icon/travel-svgrepo-com.svg");
+    
+                        }
+                    }
+                  
+                    .hotel-span-icon{
+                        &::before{
+                            background: url("/resources/img/icon/bed-svgrepo-com.svg");
+                        }
+                    }
+    
+                    .car-span-icon{
+                        &::before{
+                            background: url("/resources/img/icon/car-svgrepo-com.svg");
+                        }
+                    }
+    
+                    /* hides radio buttons*/
+                    input[type="radio"]{
+                        border: none;
+                    }              
+    
+                    input[type="radio"]:checked .content-container{
+                        display: block;
+    
+                        &:hover{
+                            color: #21b1b1;
+                            filter: invert(0);
+                            transition: color 0.5s;
+                        }
+                    }
+    
+                    .tabs-radio{
+                        display: none;
+                    }
+                }
+    
+                label.tabs-radio:checked+.tabs-label{
+                    color: #21b1b1;
+                    font-weight: bold;
+                }
+    
+                label.tabs-radio:checked+.tabs-label+.tabs-content{
+                    display: block;
+                }
+            }
+    
+            #flight{
+                margin-left: 0;
+            }
+    
+            #stay{
+                margin-right: 0;
+            }
+        }
+    
         .content-container{
             display: flex;
             flex-direction: column;
@@ -116,107 +226,9 @@ main {
                 width: 100%;
             }
         }
-    }
 
-    #search-options {
-        width: 80%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        padding: 2em 0 0;
-
-        .input-container{
-            display: flex;
-            align-items: center;
-            width: 100%;
-        
-            label {
-                background: #444343;
-                color: #fff;
-                display: flex;
-                white-space: nowrap;
-                width: 100%;
-                margin: 0;
-                padding: 1em 1.1em;
-
-                &:hover{
-                    background: #fff;
-                    color: #21b1b1;
-                    transition: background 0.5s, color 0.3s;
-                }
-                
-                span.icon-span{
-                    margin-left: 2em;
-                    display: flex;
-                    align-items: center;      
-                    
-                    &::before{
-                        content: "";
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                        width: 2em;
-                        height: 2em;
-                        position: relative;
-                        top: 0em;
-                        left: -1em;
-                        display: block;
-                        filter: invert(1);
-                    }
-                }
-
-                .flight-span-icon{
-                    &::before{
-                        background: url("/resources/img/icon/departures-sing-svgrepo-com.svg");
-                    }
-                }
-
-                .travel-span-icon{
-                    &::before{
-                        background: url("/resources/img/icon/travel-svgrepo-com.svg");
-
-                    }
-                }
-              
-                .hotel-span-icon{
-                    &::before{
-                        background: url("/resources/img/icon/bed-svgrepo-com.svg");
-                    }
-                }
-
-                .car-span-icon{
-                    &::before{
-                        background: url("/resources/img/icon/car-svgrepo-com.svg");
-                    }
-                }
-
-                /* hides radio buttons*/
-                input[type="radio"]{
-                    border: none;
-                }              
-
-                input[type="radio"]:checked .content-container{
-                    display: block;
-
-                    &:hover{
-                        color: #21b1b1;
-                        filter: invert(0);
-                        transition: color 0.5s;
-                    }
-                }
-
-                .tabs-radio{
-                    display: none;
-                }
-            }
-
-        }
-
-        #flight{
-            margin-left: 0;
-        }
-
-        #stay{
-            margin-right: 0;
+        .flight-content{
+            display: block;
         }
     }
 
@@ -266,7 +278,7 @@ main {
     }
 }
 
-main #main-pic #search-options .input-container label .tabs-radio:checked+.flight-content {
+main #main-pic .tabs-radio:checked+ .content-contaiber .flight-content {
     display: none;
 }
 
