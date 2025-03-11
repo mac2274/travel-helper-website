@@ -112,10 +112,6 @@ main {
                     color: #21b1b1;
                     font-weight: bold;
                 }
-    
-                label.tabs-radio:checked+.tabs-label+.tabs-content{
-                    display: block;
-                }
             }
     
             #flight{
@@ -247,7 +243,7 @@ main {
             align-items: center;
             justify-content: center;
             gap: 1em;
-                
+
             .article-container{
                 display: flex;
                 flex-direction: row;
@@ -272,14 +268,14 @@ main {
             }
         }
 
-        .tabs-content{
+        #stay-section.tabs-content{
             display: none;
         }
+          
+        label .tabs-radio:checked+.tabs-label+#search-content #flight-section.tabs-content{
+            display: block;
+        }
     }
-}
-
-main #main-pic .tabs-radio:checked+ .content-contaiber .flight-content {
-    display: none;
 }
 
 @media only screen and (max-width: 1060px){
