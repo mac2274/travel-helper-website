@@ -95,7 +95,7 @@ main {
                         border: none;
                     }              
     
-                    input[type="radio"]:checked .content-container{
+                    input[type="radio"]:checked+.content-container.flight-content{
                         display: block;
     
                         &:hover{
@@ -109,10 +109,9 @@ main {
                         display: none;
                     }
                 }
-    
-                label.tabs-radio:checked+.tabs-label{
-                    color: #21b1b1;
-                    font-weight: bold;
+
+                label+.tabs-radio:checked+.tabs-label{
+                    background: #fff;
                 }
             }
     
