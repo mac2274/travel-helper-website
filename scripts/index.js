@@ -34,4 +34,13 @@ tab4.addEventListener('click', () => {
 /* funktion zum tab-sprung */
 function tabWechsel(tab, zahl){
     tab.classList.toggle('tab_active');
+
+    for(let i=1; i<5; i++){
+        if(i !== zahl){
+            let newTab = document.querySelector('#tab' +i);
+            if(newTab.classList.contains('tab_active')){
+                newTab.classList.remove('tab_active');
+            }
+        }
+    }
 }
