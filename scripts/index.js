@@ -15,6 +15,11 @@ let tab2 = document.querySelector('#tab2');
 let tab3 = document.querySelector('#tab3');
 let tab4 = document.querySelector('#tab4');
 
+let img1 = document.querySelector('#flight-img');
+let img2 = document.querySelector('#travel-img');
+let img3 = document.querySelector('#car-img');
+let img4 = document.querySelector('#hotel-img');
+
 /* event-listener hinzufügen */
 tab1.addEventListener('click', () => {
     tabWechsel(tab1, 1);
@@ -34,7 +39,8 @@ tab4.addEventListener('click', () => {
 
 /* funktion zum tab-sprung */
 function tabWechsel(tab, zahl){
-    tab.classList.toggle('tab_active icon_filter');
+    tab.classList.toggle('tab_active');
+    img.classList.toggle('icon-filter')
 
     for(let i=1; i<5; i++){
         if(i !== zahl){
