@@ -34,7 +34,7 @@ tab4.addEventListener('click', () => {
 
 /* funktion zum tab-sprung */
 function tabWechsel(tab, zahl){
-    tab.classList.toggle('tab_active icon_filter');
+    tab.classList.toggle('tab_active');
 
     for(let i=1; i<5; i++){
         if(i !== zahl){
