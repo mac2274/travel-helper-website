@@ -15,32 +15,35 @@ let tab2 = document.querySelector('#tab2');
 let tab3 = document.querySelector('#tab3');
 let tab4 = document.querySelector('#tab4');
 
-let img1 = document.querySelector('#flight-img');
-let img2 = document.querySelector('#travel-img');
-let img3 = document.querySelector('#car-img');
-let img4 = document.querySelector('#hotel-img');
+let img1 = document.querySelector('#img1');
+let img2 = document.querySelector('#img2');
+let img3 = document.querySelector('#img3');
+let img4 = document.querySelector('#img4');
 
 /* event-listener hinzufügen */
 tab1.addEventListener('click', () => {
     tabWechsel(tab1, 1);
+    useFilter(img1);
 })
 
 tab2.addEventListener('click', () => {
     tabWechsel(tab2, 2);
+    useFilter(img2);
 })
 
 tab3.addEventListener('click', () => {
     tabWechsel(tab3, 3);
+    useFilter(img3);
 })
 
 tab4.addEventListener('click', () => {
     tabWechsel(tab4, 4);
+    useFilter(img4);
 })
 
 /* funktion zum tab-sprung */
 function tabWechsel(tab, zahl){
     tab.classList.toggle('tab_active');
-    img.classList.toggle('icon-filter')
 
     for(let i=1; i<5; i++){
         if(i !== zahl){
@@ -50,4 +53,8 @@ function tabWechsel(tab, zahl){
             }
         }
     }
+}
+
+function useFilter (img){
+    img.classList.toggle('icon_filter');
 }
