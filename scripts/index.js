@@ -9,6 +9,7 @@ overlayContent.addEventListener('click', () => {
     overlay.classList.toggle('hidden');
 })
 
+/* initiieern der tabs */ 
 let tab1 = document.querySelector('#tab1');
 let tab2 = document.querySelector('#tab2');
 let tab3 = document.querySelector('#tab3');
@@ -33,7 +34,7 @@ tab4.addEventListener('click', () => {
 
 /* funktion zum tab-sprung */
 function tabWechsel(tab, zahl){
-    tab.classList.toggle('tab_active');
+    tab.classList.toggle('tab_active icon_filter');
 
     for(let i=1; i<5; i++){
         if(i !== zahl){
