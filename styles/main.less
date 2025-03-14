@@ -40,6 +40,14 @@ main {
                     margin: 0;
                     padding: 1em 1.1em;
     
+                    img{
+                        width: 2em;
+                    }
+
+                    .icon_filter{
+                        filter: brightness(0) saturate(100%) invert(57%) sepia(56%) saturate(526%) hue-rotate(131deg) brightness(90%) contrast(98%);
+                    }
+                    
                     &:hover{
                         background: #fff;
                         color: #21b1b1;
@@ -47,11 +55,11 @@ main {
                     }
                     
                     span.icon-span{
-                        margin-left: 2em;
                         display: flex;
-                        align-items: center;      
+                        align-items: center;   
+                        margin-left: 1em;   
                         
-                        &::before{
+                        /*&::before{
                             content: "";
                             background-size: contain;
                             background-repeat: no-repeat;
@@ -62,7 +70,7 @@ main {
                             left: -1em;
                             display: block;
                             filter: invert(1);
-                        }
+                        }*/
                     }
     
                     .flight-span-icon{
