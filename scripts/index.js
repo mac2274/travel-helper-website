@@ -59,3 +59,12 @@ function tabWechsel(tab, zahl, img){
     }
 }
 
+/* fluege-json auslesen */
+const resultContainer = document.querySelector('#option-container');
+
+fluege.forEach(flug => {
+    const HTMLcontainer = `
+    <div></div>`;    
+});
+
+resultContainer.innerHTML += HTMLcontainer; 
