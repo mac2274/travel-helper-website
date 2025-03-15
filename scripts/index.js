@@ -22,21 +22,21 @@ let img4 = document.querySelector('#img4');
 
 /* event-listener hinzufügen */
 tab1.addEventListener('click', () => {
-    tabWechsel(tab1, 1);
+    tabWechsel(tab1, 1, img1);
 })
 
 tab2.addEventListener('click', () => {
-    tabWechsel(tab2, 2);
+    tabWechsel(tab2, 2, img2);
     useFilter(img2);
 })
 
 tab3.addEventListener('click', () => {
-    tabWechsel(tab3, 3);
+    tabWechsel(tab3, 3, img3);
     useFilter(img3);
 })
 
 tab4.addEventListener('click', () => {
-    tabWechsel(tab4, 4);
+    tabWechsel(tab4, 4, img4);
     useFilter(img4);
 })
 
@@ -53,6 +53,7 @@ function tabWechsel(tab, zahl, img){
             let newImg = document.querySelector('#img' +i)
             if(newTab.classList.contains('tab_active')){
                 newTab.classList.remove('tab_active');
+                newImg.classList.remove('icon_filter');
             }
         }
     }
