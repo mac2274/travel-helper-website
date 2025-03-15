@@ -23,7 +23,6 @@ let img4 = document.querySelector('#img4');
 /* event-listener hinzufügen */
 tab1.addEventListener('click', () => {
     tabWechsel(tab1, 1);
-    useFilter(img1);
 })
 
 tab2.addEventListener('click', () => {
@@ -42,19 +41,19 @@ tab4.addEventListener('click', () => {
 })
 
 /* funktion zum tab-sprung */
-function tabWechsel(tab, zahl){
+function tabWechsel(tab, zahl, img){
     tab.classList.toggle('tab_active');
+    img.classList.toggle('icon_filter');
 
     for(let i=1; i<5; i++){
         if(i !== zahl){
+            /* Difinieren einer neuen Variable für den Tabwechsel*/
             let newTab = document.querySelector('#tab' +i);
+            /* Definieren einer neuen Variable für den Bilwechsel*/
+            let newImg = document.querySelector('#img' +i)
             if(newTab.classList.contains('tab_active')){
                 newTab.classList.remove('tab_active');
             }
         }
     }
-}
-
-function useFilter (img){
-    img.classList.toggle('icon_filter');
 }
