@@ -20,6 +20,32 @@ let img2 = document.querySelector('#img2');
 let img3 = document.querySelector('#img3');
 let img4 = document.querySelector('#img4');
 
+/* fluege json */
+const fluege = [
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Frankfurt (FRA)",
+        "stops": 0,
+        "flugdauer": "1h 10m",
+        "preis": {
+            "business": "350 EUR",
+            "economy": "150 EUR"
+        },
+        "terminal": "T1"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Berlin (BER)",
+        "stops": 0,
+        "flugdauer": "1h 25m",
+        "preis": {
+            "business": "400 EUR",
+            "economy": "180 EUR"
+        },
+        "terminal": "T2"
+    }
+];
+
 /* event-listener hinzufügen */
 tab1.addEventListener('click', () => {
     tabWechsel(tab1, 1, img1);
