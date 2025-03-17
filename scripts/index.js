@@ -177,10 +177,16 @@ function tabWechsel(tab, zahl, img){
 
 /* fluege-json auslesen -> json ist jetzt in der js-datei definiert um kein fetch machen zu müssen*/
 const resultContainer = document.querySelector('#fluege-container');
+let flightFrom = document.querySelector('#flight-from');
+let flightTo = document.querySelector('#flight-to');
+
 
 document.querySelector('#submit-button').addEventListener('click', () => {
 
     fluege.forEach((flug) => {
+
+        if(flightFrom === flug.start && flightTo === flug.ziel) {
+
         const HTMLcontainer = `
             <div class="option-container">    
                 <div class="time">
@@ -214,6 +220,7 @@ document.querySelector('#submit-button').addEventListener('click', () => {
                 </div>
                 </div>`;  
 
-        resultContainer.innerHTML = HTMLcontainer;
+        resultContainer.innerHTML += HTMLcontainer;
     });
+}
 })
