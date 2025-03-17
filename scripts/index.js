@@ -43,7 +43,7 @@ tab4.addEventListener('click', () => {
 /* funktion zum tab-sprung */
 function tabWechsel(tab, zahl, img){
     tab.classList.toggle('tab_active');
-    img.classList.toggle('icon_filter');
+    img.classList.toggle('icon_filter'); 
 
     for(let i=1; i<5; i++){
         if(i !== zahl){
@@ -64,7 +64,26 @@ const resultContainer = document.querySelector('#option-container');
 
 fluege.forEach(flug => {
     const HTMLcontainer = `
-    <div></div>`;    
+        <div class="time">
+            <div class="leaving-time">10:10
+                <div class="leaving-airport">${flug.start}</div>
+                <div class="flying-time">Dauer ${flug.flugdauer}</div>
+            </div>
+                    
+            <div class="stops">${flug.stops}</div>
+            
+            <div class="arriving-time">12:45
+                <div class="arriving-airport">${flug.ziel}
+                    <div class="terminal">${flug.terminal}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flight-classes">
+            <div class="economy"><span class="bold">Economy</span> ab <span class="bold">${flug.preis[economy]}</span> EUR <img src="resources/img/icon/arrow-down.png" alt=""></div>
+            <div class="business"><span class="bold">Business</span> ab <span class="bold">${flug.preis[business]}</span> EUR  <img src="resources/img/icon/arrow-down.png"></div>
+        </div>
+    `;    
 });
 
 resultContainer.innerHTML += HTMLcontainer; 
