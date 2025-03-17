@@ -62,7 +62,7 @@ function tabWechsel(tab, zahl, img){
 /* fluege-json auslesen */
 const resultContainer = document.querySelector('#option-container');
 
-fluege.forEach(flug => {
+fluege.forEach((flug) => {
     const HTMLcontainer = `
         <div class="time">
             <div class="leaving-time">10:10
@@ -80,10 +80,11 @@ fluege.forEach(flug => {
         </div>
 
         <div class="flight-classes">
-            <div class="economy"><span class="bold">Economy</span> ab <span class="bold">${flug.preis[economy]}</span> EUR <img src="resources/img/icon/arrow-down.png" alt=""></div>
-            <div class="business"><span class="bold">Business</span> ab <span class="bold">${flug.preis[business]}</span> EUR  <img src="resources/img/icon/arrow-down.png"></div>
-        </div>
-    `;    
+            <div class="economy"><span class="bold">Economy</span> ab <span class="bold">${flug.preis.economy}</span> EUR <img src="resources/img/icon/arrow-down.png" alt=""></div>
+            <div class="business"><span class="bold">Business</span> ab <span class="bold">${flug.preis.business}</span> EUR  <img src="resources/img/icon/arrow-down.png"></div>
+        </div>`;  
+        
+        resultContainer.innerHTML += HTMLcontainer; 
 });
 
-resultContainer.innerHTML += HTMLcontainer; 
+console.log(fluege);
