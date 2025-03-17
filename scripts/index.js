@@ -1,5 +1,4 @@
-//fluege-json als array
-
+//fluege-json als array Einfachheitshalber
 const fluege = [
     {
         "start": "Stuttgart (STR)",
@@ -113,16 +112,18 @@ const fluege = [
     }
 ] 
 
-let overlay = document.querySelector('.div-overlay');
+// overlay[1] nicht mehr nötig, jetzt brauchen wir #submit-button für Suchfunktion[2]
 
-document.querySelector('#submit-button').addEventListener('click', () => {
-    overlay.classList.toggle('hidden');
-})
+// let overlay = document.querySelector('.div-overlay');
 
-let overlayContent = document.querySelector('.overlay-content');
-overlayContent.addEventListener('click', () => {
-    overlay.classList.toggle('hidden');
-})
+// document.querySelector('#submit-button').addEventListener('click', () => {
+//     overlay.classList.toggle('hidden');
+// })
+
+// let overlayContent = document.querySelector('.overlay-content');
+// overlayContent.addEventListener('click', () => {
+//     overlay.classList.toggle('hidden');
+// })
 
 /* initiieern der tabs */ 
 let tab1 = document.querySelector('#tab1');
@@ -174,33 +175,45 @@ function tabWechsel(tab, zahl, img){
     }
 }
 
-/* fluege-json auslesen */
-const resultContainer = document.querySelector('#option-container');
+/* fluege-json auslesen -> json ist jetzt in der js-datei definiert um kein fetch machen zu müssen*/
+const resultContainer = document.querySelector('#fluege-container');
 
-fluege.forEach((flug) => {
-    const HTMLcontainer = `
-        <div class="option-container">    
-            <div class="time">
-                <div class="leaving-time">10:10
-                    <div class="leaving-airport">${flug.start}</div>
-                    <div class="flying-time">Dauer ${flug.flugdauer}</div>
-                </div>
-                        
-                <div class="stops">${flug.stops}</div>
-                
-                <div class="arriving-time">12:45
-                    <div class="arriving-airport">${flug.ziel}
-                        <div class="terminal">${flug.terminal}</div>
+document.querySelector('#submit-button').addEventListener('click', () => {
+
+    fluege.forEach((flug) => {
+        const HTMLcontainer = `
+            <div class="option-container">    
+                <div class="time">
+                    <div class="leaving-time">10:10
+                        <div class="leaving-airport">${flug.start}</div>
+                        <div class="flying-time">Dauer ${flug.flugdauer}</div>
+                    </div>
+                            
+                    <div class="stops">${flug.stops}</div>
+                    
+                    <div class="arriving-time">12:45
+                        <div class="arriving-airport">${flug.ziel}
+                            <div class="terminal">${flug.terminal}</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="flight-classes">
-                <div class="economy"><span class="bold">Economy</span> ab <span class="bold">${flug.preis.economy}</span> EUR <img src="resources/img/icon/arrow-down.png" alt=""></div>
-                <div class="business"><span class="bold">Business</span> ab <span class="bold">${flug.preis.business}</span> EUR  <img src="resources/img/icon/arrow-down.png"></div>
-            </div>
-            </div>`;  
+                <div class="flight-classes">
+                    <div class="economy">
+                        <span class="bold">Economy</span>
+                        ab
+                        <span class="bold">${flug.preis.economy}</span>
+                        <img src="resources/img/icon/arrow-down.png" alt="">
+                    </div>
+                    <div class="business">
+                        <span class="bold">Business</span>
+                        ab
+                        <span class="bold">${flug.preis.business}</span>
+                        <img src="resources/img/icon/arrow-down.png" alt="">
+                    </div>
+                </div>
+                </div>`;  
 
-    resultContainer.innerHTML = HTMLcontainer;
-});
-
+        resultContainer.innerHTML = HTMLcontainer;
+    });
+})
