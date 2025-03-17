@@ -1,3 +1,118 @@
+//fluege-json als array
+
+const fluege = [
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Frankfurt (FRA)",
+        "stops": 0,
+        "flugdauer": "1h 10m",
+        "preis": {
+            "business": "350 EUR",
+            "economy": "150 EUR"
+        },
+        "terminal": "T1"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Berlin (BER)",
+        "stops": 0,
+        "flugdauer": "1h 25m",
+        "preis": {
+            "business": "400 EUR",
+            "economy": "180 EUR"
+        },
+        "terminal": "T2"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "München (MUC)",
+        "stops": 0,
+        "flugdauer": "1h 05m",
+        "preis": {
+            "business": "370 EUR",
+            "economy": "160 EUR"
+        },
+        "terminal": "T1"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Hamburg (HAM)",
+        "stops": 1,
+        "flugdauer": "2h 45m",
+        "preis": {
+            "business": "450 EUR",
+            "economy": "200 EUR"
+        },
+        "terminal": "T3"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Düsseldorf (DUS)",
+        "stops": 0,
+        "flugdauer": "1h 20m",
+        "preis": {
+            "business": "380 EUR",
+            "economy": "170 EUR"
+        },
+        "terminal": "T1"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Zürich (ZRH)",
+        "stops": 0,
+        "flugdauer": "1h 10m",
+        "preis": {
+            "business": "390 EUR",
+            "economy": "180 EUR"
+        },
+        "terminal": "T2"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Wien (VIE)",
+        "stops": 1,
+        "flugdauer": "2h 15m",
+        "preis": {
+            "business": "420 EUR",
+            "economy": "190 EUR"
+        },
+        "terminal": "T1"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Paris (CDG)",
+        "stops": 0,
+        "flugdauer": "1h 30m",
+        "preis": {
+            "business": "430 EUR",
+            "economy": "200 EUR"
+        },
+        "terminal": "T3"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Amsterdam (AMS)",
+        "stops": 0,
+        "flugdauer": "1h 35m",
+        "preis": {
+            "business": "440 EUR",
+            "economy": "210 EUR"
+        },
+        "terminal": "T2"
+    },
+    {
+        "start": "Stuttgart (STR)",
+        "ziel": "Madrid (MAD)",
+        "stops": 1,
+        "flugdauer": "3h 15m",
+        "preis": {
+            "business": "500 EUR",
+            "economy": "250 EUR"
+        },
+        "terminal": "T1"
+    }
+] 
+
 let overlay = document.querySelector('.div-overlay');
 
 document.querySelector('#submit-button').addEventListener('click', () => {
@@ -64,27 +179,28 @@ const resultContainer = document.querySelector('#option-container');
 
 fluege.forEach((flug) => {
     const HTMLcontainer = `
-        <div class="time">
-            <div class="leaving-time">10:10
-                <div class="leaving-airport">${flug.start}</div>
-                <div class="flying-time">Dauer ${flug.flugdauer}</div>
-            </div>
-                    
-            <div class="stops">${flug.stops}</div>
-            
-            <div class="arriving-time">12:45
-                <div class="arriving-airport">${flug.ziel}
-                    <div class="terminal">${flug.terminal}</div>
+        <div class="option-container">    
+            <div class="time">
+                <div class="leaving-time">10:10
+                    <div class="leaving-airport">${flug.start}</div>
+                    <div class="flying-time">Dauer ${flug.flugdauer}</div>
+                </div>
+                        
+                <div class="stops">${flug.stops}</div>
+                
+                <div class="arriving-time">12:45
+                    <div class="arriving-airport">${flug.ziel}
+                        <div class="terminal">${flug.terminal}</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="flight-classes">
-            <div class="economy"><span class="bold">Economy</span> ab <span class="bold">${flug.preis.economy}</span> EUR <img src="resources/img/icon/arrow-down.png" alt=""></div>
-            <div class="business"><span class="bold">Business</span> ab <span class="bold">${flug.preis.business}</span> EUR  <img src="resources/img/icon/arrow-down.png"></div>
-        </div>`;  
+            <div class="flight-classes">
+                <div class="economy"><span class="bold">Economy</span> ab <span class="bold">${flug.preis.economy}</span> EUR <img src="resources/img/icon/arrow-down.png" alt=""></div>
+                <div class="business"><span class="bold">Business</span> ab <span class="bold">${flug.preis.business}</span> EUR  <img src="resources/img/icon/arrow-down.png"></div>
+            </div>
+            </div>`;  
         
         resultContainer.innerHTML += HTMLcontainer; 
 });
 
-console.log(fluege);
