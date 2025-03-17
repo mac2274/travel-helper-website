@@ -200,7 +200,7 @@ fluege.forEach((flug) => {
                 <div class="business"><span class="bold">Business</span> ab <span class="bold">${flug.preis.business}</span> EUR  <img src="resources/img/icon/arrow-down.png"></div>
             </div>
             </div>`;  
-        
-        resultContainer.innerHTML += HTMLcontainer; 
+
+    resultContainer.innerHTML = HTMLcontainer;
 });
 
