@@ -176,12 +176,11 @@ function tabWechsel(tab, zahl, img){
 }
 
 /* fluege-json auslesen -> json ist jetzt in der js-datei definiert um kein fetch machen zu müssen*/
-const resultContainer = document.querySelector('#fluege-container');
-let flightFrom = document.querySelector('#flight-from');
-let flightTo = document.querySelector('#flight-to');
-
 
 document.querySelector('#submit-button').addEventListener('click', () => {
+    const resultContainer = document.querySelector('#fluege-container');
+    let flightFrom = document.querySelector('#flight-from').value;
+    let flightTo = document.querySelector('#flight-to').value;
 
     fluege.forEach((flug) => {
 
@@ -221,6 +220,7 @@ document.querySelector('#submit-button').addEventListener('click', () => {
                 </div>`;  
 
         resultContainer.innerHTML += HTMLcontainer;
-    });
-}
-})
+    }
+});
+});
+
