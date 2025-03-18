@@ -178,49 +178,48 @@ function tabWechsel(tab, zahl, img){
 /* fluege-json auslesen -> json ist jetzt in der js-datei definiert um kein fetch machen zu müssen*/
 
 document.querySelector('#submit-button').addEventListener('click', () => {
-    const resultContainer = document.querySelector('#fluege-container');
     let flightFrom = document.querySelector('#flight-from').value;
     let flightTo = document.querySelector('#flight-to').value;
+    let resultContainer = document.querySelector('#fluege-container');
 
     fluege.forEach((flug) => {
 
         if(flightFrom === flug.start && flightTo === flug.ziel) {
-
-        const HTMLcontainer = `
-            <div class="option-container">    
-                <div class="time">
-                    <div class="leaving-time">10:10
-                        <div class="leaving-airport">${flug.start}</div>
-                        <div class="flying-time">Dauer ${flug.flugdauer}</div>
-                    </div>
-                            
-                    <div class="stops">${flug.stops}</div>
-                    
-                    <div class="arriving-time">12:45
-                        <div class="arriving-airport">${flug.ziel}
-                            <div class="terminal">${flug.terminal}</div>
+            const HTMLcontainer = `
+                <div class="option-container">    
+                    <div class="time">
+                        <div class="leaving-time">10:10
+                            <div class="leaving-airport">${flug.start}</div>
+                            <div class="flying-time">Dauer ${flug.flugdauer}</div>
+                        </div>
+                                
+                        <div class="stops">${flug.stops}</div>
+                        
+                        <div class="arriving-time">12:45
+                            <div class="arriving-airport">${flug.ziel}
+                                <div class="terminal">${flug.terminal}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="flight-classes">
-                    <div class="economy">
-                        <span class="bold">Economy</span>
-                        ab
-                        <span class="bold">${flug.preis.economy}</span>
-                        <img src="resources/img/icon/arrow-down.png" alt="">
+                    <div class="flight-classes">
+                        <div class="economy">
+                            <span class="bold">Economy</span>
+                            ab
+                            <span class="bold">${flug.preis.economy}</span>
+                            <img src="resources/img/icon/arrow-down.png" alt="">
+                        </div>
+                        <div class="business">
+                            <span class="bold">Business</span>
+                            ab
+                            <span class="bold">${flug.preis.business}</span>
+                            <img src="resources/img/icon/arrow-down.png" alt="">
+                        </div>
                     </div>
-                    <div class="business">
-                        <span class="bold">Business</span>
-                        ab
-                        <span class="bold">${flug.preis.business}</span>
-                        <img src="resources/img/icon/arrow-down.png" alt="">
-                    </div>
-                </div>
                 </div>`;  
 
-        resultContainer.innerHTML += HTMLcontainer;
-    }
-});
+            resultContainer.innerHTML += HTMLcontainer;
+        }
+    });
 });
 
