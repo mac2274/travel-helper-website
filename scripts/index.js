@@ -182,6 +182,8 @@ document.querySelector('#submit-button').addEventListener('click', () => {
     let flightTo = document.querySelector('#flight-to').value;
     let resultContainer = document.querySelector('#fluege-container');
 
+    resultContainer.innerHTML = '';
+    
     fluege.forEach((flug) => {
 
         if(flightFrom === flug.start && flightTo === flug.ziel) {
