@@ -177,17 +177,19 @@ function tabWechsel(tab, zahl, img){
 
 /* fluege-json auslesen -> json ist jetzt in der js-datei definiert um kein fetch machen zu müssen*/
 
-document.querySelector('#submit-button').addEventListener('click', () => {
-    let flightFrom = document.querySelector('#flight-from').value;
-    let flightTo = document.querySelector('#flight-to').value;
-    let resultContainer = document.querySelector('#fluege-container');
-
-    resultContainer.innerHTML = '';
+document.querySelector('#submit-button').addEventListener('click', () => {  
+/* initiieren dervariablen für suchfunktion */
+let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+let resultContainer = document.querySelector('#fluege-container');
+resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
 
     fluege.forEach((flug) => {
+        let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
+        let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
 
-        if(flug.start.includes(flightFrom) && flug.ziel.includes(flightTo)) {
-            resultContainer.innerHTML = `
+        if(lcFlugStart.includes(flightFrom) && lcFlugZiel.includes(flightTo)) { 
+            resultContainer.innerHTML += `
                 <div class="option-container">    
                     <div class="time">
                         <div class="leaving-time">10:10
