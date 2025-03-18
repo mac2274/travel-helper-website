@@ -186,7 +186,7 @@ document.querySelector('#submit-button').addEventListener('click', () => {
 
     fluege.forEach((flug) => {
 
-        if(flug.start.includes(flightFrom) && flug.ziel.includes(flightTo)) {
+        if(flightFrom === flug.start && flightTo === flug.ziel) {
             const HTMLcontainer = `
                 <div class="option-container">    
                     <div class="time">
