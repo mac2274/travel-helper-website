@@ -186,8 +186,8 @@ document.querySelector('#submit-button').addEventListener('click', () => {
 
     fluege.forEach((flug) => {
 
-        if(flightFrom === flug.start && flightTo === flug.ziel) {
-            const HTMLcontainer = `
+        if(flug.start.includes(flightFrom) && flug.ziel.includes(flightTo)) {
+            resultContainer.innerHTML = `
                 <div class="option-container">    
                     <div class="time">
                         <div class="leaving-time">10:10
@@ -219,8 +219,6 @@ document.querySelector('#submit-button').addEventListener('click', () => {
                         </div>
                     </div>
                 </div>`;  
-
-            resultContainer.innerHTML += HTMLcontainer;
         }
     });
 });
