@@ -2,6 +2,8 @@
     display: flex;
     width: 80%;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
     padding: 2em 0 0;
 
     .option-container{
@@ -9,6 +11,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 1em;
         -webkit-box-shadow: 0px 10px 13px -7px #8a8a8a, 1px 2px 17px -4px rgba(100,100,100,0); 
         box-shadow:  10px 13px -7px #8a8a8a, 1px 2px 17px -4px rgba(100, 100, 100, 0);    
     
@@ -17,7 +20,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            width: 50%;
+            min-width: 55%;
             padding: 0 2em;
             box-sizing: border-box;
             height: 100%;
@@ -39,7 +42,7 @@
                     font-weight: normal;
                     text-wrap: nowrap;
                     font-size: 0.6em;
-                    margin-bottom: -2em;
+                    margin-top: 2em;
                 }
             }
 
@@ -65,7 +68,7 @@
                 .arriving-airport{
                     font-weight: normal;
                     font-size: 0.8em;
-                    margin-top: -0.5em;
+                    margin-top: -0.2em;
 
                     .terminal{
                         text-wrap: nowrap;
@@ -80,18 +83,19 @@
             display: flex;
             flex-direction: row;
             justify-content: end;
-            width: 50%;
+            width: fit-content;
             font-size: 0.8em;
 
             .economy{
                 color: #006400;
+                border: #006400 solid 1px!important;
             }
 
             .economy, .business{
                 word-spacing: 9999em;
                 text-align: center;
                 border: 1px solid #000;
-                padding: 10% 15%;
+                padding: 5%;
                 padding-bottom: 5%;
 
                 .bold{
