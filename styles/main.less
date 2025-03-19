@@ -113,8 +113,11 @@ main {
 
             select, input {
                 border: none;
-                padding: 1em;
                 font-size: 0.9em;
+            }
+
+            input{
+                padding: 1em;
             }
 
             .input-container {
@@ -122,6 +125,7 @@ main {
                 align-items: center;
                 gap: 0.5em;
                 width: 100%;
+                border: transparent solid 1px;
 
                 .change-order{
                     order: 2;
@@ -185,6 +189,7 @@ main {
                 flex-direction: row;
                 align-items: center;
                 box-sizing: border-box;
+                gap: 1em;
 
                 .order-2{
                     align-items: center;
@@ -195,10 +200,15 @@ main {
             
             .line-two{
                 align-items: center;
+                padding-top: 1em;
             }
 
             .full-width{
                 width: 100%;
+            }
+
+            .order-3, .order-4, .order-5{
+                border: 1px solid #d5d5d5;
             }
         }
 
@@ -250,11 +260,18 @@ main {
         #stay-section.tabs-content{
             display: none;
         }
-          
-        /* folgender code folgt nicht */
-        label.tabs-radio:checked+.tabs-label+#search-content #flight-section.tabs-content{
-            display: block;
-        }
+    }
+}
+
+@media only screen and (max-width: 1320px){
+    main #main-pic .content-container .line-two {
+        flex-direction: column!important;
+        display: grid;
+        grid-template-columns: 49% 49%;
+        justify-content: space-between;
+        grid-template-rows: auto;
+        grid-template-areas: "box1 box2"
+                            "box3 box4";
     }
 }
 
@@ -271,24 +288,14 @@ main {
                 width: 100%;
                 padding: 0;
             }
-        
-            .line-two {
-                flex-direction: column!important;
-                display: grid;
-                grid-template-columns: 49% 49%;
-                justify-content: space-between;
-                grid-template-rows: auto;
-                grid-template-areas: "box1 box2"
-                                    "box3 box4";
 
+            .line-two{
                 .order-3{
                     grid-area: box1;  
-                    padding-bottom: 1em;
                 }
         
                 .order-4{
                     grid-area: box2;
-                    padding-bottom: 1em;
 
                 }
                 
@@ -300,10 +307,6 @@ main {
                     grid-area: box4;
                 }
             }
-            
-            .input-container{
-                border: 1px solid #d5d5d5;
-            }
 
             .no-border{
                 border: none;                    
@@ -312,7 +315,7 @@ main {
     }
 }
 
-@media only screen and (max-width: 910px){
+@media only screen and (max-width: 810px){
     main #search-options .input-container{
     
     label span.icon-span{
@@ -394,10 +397,8 @@ main {
                                     "box3"
                                     "box4";
                 grid-template-columns: 1fr;
+                margin-top: 1em;
 
-                .order-5, .order-6{
-                    padding-top: 1em;
-                }
             }
         } 
     }
