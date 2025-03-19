@@ -177,7 +177,10 @@ function tabWechsel(tab, zahl, img){
 
 /* fluege-json auslesen -> json ist jetzt in der js-datei definiert um kein fetch machen zu müssen*/
 
-document.querySelector('#submit-button').addEventListener('click', () => {  
+document.querySelector('#submit-button').addEventListener('click', startSearch); 
+
+
+function startSearch(){  
 /* initiieren dervariablen für suchfunktion */
 let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
 let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
@@ -223,5 +226,5 @@ resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann 
                 </div>`;  
         }
     });
-});
+};
 
