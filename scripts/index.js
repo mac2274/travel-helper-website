@@ -183,14 +183,23 @@ fetch('scripts/fluege.json')
 })
 
 // die umgewandte Json-Datei in JS nutzen
-.then(data=> {
-    console.log("Flugdaten geladen:", data);
+.then(data => {
+    //console.log("Flugdaten geladen:", data);
+    let fetchedData = data;
+    // muss hier jetzt resultContainer hin?
+
+    let filteredEco = document.querySelector('#checkbox-economy').checked;
+    let filteredNonstop = document.querySelector('#checkbox-nonstop').checked;
+
+    if(filteredEco){
+        fetchedData = fetchedData.filter(data)
+    }
 })   
 .catch(error => {
     console.log("Fehler beim Laden der Daten:" + error);
 });
 
-    data.forEach((flug) => {
+    fluege.forEach((flug) => {
         let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
         let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
 
