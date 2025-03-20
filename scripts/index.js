@@ -87,6 +87,34 @@ document.querySelector('#submit-button').addEventListener('click', startSearch);
                 let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
 
                 if(lcFlugStart.includes(flightFrom) && lcFlugZiel.includes(flightTo)) { 
+                    if(checkedEco){
+                        resultContainer.innerHTML += `
+                        <div class="option-container">    
+                            <div class="time">
+                                <div class="leaving-time">10:10
+                                    <div class="leaving-airport">${flug.start}</div>
+                                    <div class="flying-time">Dauer ${flug.flugdauer}</div>
+                                </div>    
+                            </div>
+                                            
+                            <div class="stops">${flug.stops}</div>
+                                    
+                            <div class="arriving-time">12:45
+                                <div class="arriving-airport">${flug.ziel}
+                                    <div class="terminal">${flug.terminal}</div>                                    
+                                </div>
+                            </div>
+    
+                            <div class="flight-classes">
+                                <div class="economy">
+                                    <span class="bold">Economy</span>
+                                    ab
+                                    <span class="bold">${flug.preis.economy}</span>
+                                    <img src="resources/img/icon/arrow-down.png" alt="">
+                                </div>
+                            </div>
+                        </div>`;  
+                    } else {   
                     resultContainer.innerHTML += `
                         <div class="option-container">    
                             <div class="time">
@@ -119,34 +147,7 @@ document.querySelector('#submit-button').addEventListener('click', startSearch);
                                 </div>
                             </div>
                         </div>`;  
-                
-                    if(checkedEco){
-                        resultContainer.innerHTML += `
-                        <div class="option-container">    
-                            <div class="time">
-                                <div class="leaving-time">10:10
-                                    <div class="leaving-airport">${flug.start}</div>
-                                <div class="flying-time">Dauer ${flug.flugdauer}</div>
-                            </div>
-                                            
-                            <div class="stops">${flug.stops}</div>
-                                    
-                            <div class="arriving-time">12:45
-                                <div class="arriving-airport">${flug.ziel}
-                                    <div class="terminal">${flug.terminal}</div>                                    </div>
-                                </div>
-                            </div>
-    
-                            <div class="flight-classes">
-                                <div class="economy">
-                                    <span class="bold">Economy</span>
-                                    ab
-                                    <span class="bold">${flug.preis.economy}</span>
-                                    <img src="resources/img/icon/arrow-down.png" alt="">
-                                </div>
-                            </div>
-                        </div>`;  
-                    }    
+                    }
                 }
             })
         };
