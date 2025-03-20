@@ -56,6 +56,8 @@ document.querySelector('#submit-button').addEventListener('click', startSearch);
         let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
         let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
         let resultContainer = document.querySelector('#fluege-container');
+        let checkedEco = document.querySelector('#checkbox-economy').checked;
+
         resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
 
         // fetch um daten aus json-datei zu erhalten
@@ -72,15 +74,12 @@ document.querySelector('#submit-button').addEventListener('click', startSearch);
                 //console.log("Flugdaten geladen:", data);
                 let fetchedData = data;
                 generateHTML(fetchedData);
+                filterEco()
             })   
 
             .catch(error => {
                 console.log("Fehler beim Laden der Daten:" + error);
-        });
-
-        function checkboxCheck{
-            
-        }
+            });
 
         function generateHTML(fetchedData){
             fetchedData.forEach((flug) => { // filtern nach Eingabe
@@ -120,6 +119,34 @@ document.querySelector('#submit-button').addEventListener('click', startSearch);
                                 </div>
                             </div>
                         </div>`;  
+                
+                    if(checkedEco){
+                        resultContainer.innerHTML += `
+                        <div class="option-container">    
+                            <div class="time">
+                                <div class="leaving-time">10:10
+                                    <div class="leaving-airport">${flug.start}</div>
+                                <div class="flying-time">Dauer ${flug.flugdauer}</div>
+                            </div>
+                                            
+                            <div class="stops">${flug.stops}</div>
+                                    
+                            <div class="arriving-time">12:45
+                                <div class="arriving-airport">${flug.ziel}
+                                    <div class="terminal">${flug.terminal}</div>                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="flight-classes">
+                                <div class="economy">
+                                    <span class="bold">Economy</span>
+                                    ab
+                                    <span class="bold">${flug.preis.economy}</span>
+                                    <img src="resources/img/icon/arrow-down.png" alt="">
+                                </div>
+                            </div>
+                        </div>`;  
+                    }    
                 }
             })
         };
