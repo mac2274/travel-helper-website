@@ -1,4 +1,4 @@
-/* initiieern der tabs */ 
+/* initiieern der tabs */
 let tab1 = document.querySelector('#tab1');
 let tab2 = document.querySelector('#tab2');
 let tab3 = document.querySelector('#tab3');
@@ -30,17 +30,17 @@ tab4.addEventListener('click', () => {
 })
 
 // funktion zum tab-sprung *
-function tabWechsel(tab, zahl, img){
+function tabWechsel(tab, zahl, img) {
     tab.classList.toggle('tab_active');
-    img.classList.toggle('icon_filter'); 
+    img.classList.toggle('icon_filter');
 
-    for(let i=1; i<5; i++){
-        if(i !== zahl){
+    for (let i = 1; i < 5; i++) {
+        if (i !== zahl) {
             // Difinieren einer neuen Variable für den Tabwechsel
-            let newTab = document.querySelector('#tab' +i);
+            let newTab = document.querySelector('#tab' + i);
             // Definieren einer neuen Variable für den Bilwechsel
-            let newImg = document.querySelector('#img' +i)
-            if(newTab.classList.contains('tab_active')){
+            let newImg = document.querySelector('#img' + i)
+            if (newTab.classList.contains('tab_active')) {
                 newTab.classList.remove('tab_active');
                 newImg.classList.remove('icon_filter');
             }
@@ -49,107 +49,113 @@ function tabWechsel(tab, zahl, img){
 }
 
 // Event-Listener auf Button setzen
-document.querySelector('#submit-button').addEventListener('click', startSearch); 
+document.querySelector('#submit-button').addEventListener('click', startSearch);
 
-    function startSearch(){ // Funktion zum Starten der Suche   
-        /* initiieren dervariablen für suchfunktion */
-        let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
-        let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
-        let resultContainer = document.querySelector('#fluege-container');
-        let checkedEco = document.querySelector('#checkbox-economy').checked;
+function startSearch() { // Funktion zum Starten der Suche   
+    /* initiieren dervariablen für suchfunktion */
+    let resultContainer = document.querySelector('#fluege-container');
 
-        resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
+    resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
+    fetchData();
+};
 
-        // fetch um daten aus json-datei zu erhalten
-        fetch('scripts/fluege.json')
-            .then(response => {
-                if(!response.ok){
-                    throw new Error("Error" + response.status);
-                }
-                return response.json();            
-            })
+// fetch um daten aus json-datei zu erhalten 
+function fetchData() {
+    fetch('scripts/fluege.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error" + response.status);
+            }
+            return response.json();
+        })
+        // die umgewandte Json-Datei in JS nutzen
+        .then(data => {
+            //console.log("Flugdaten geladen:", data);
+            let fetchedData = data;
+            generateHTML(fetchedData);
+        })
+        .catch(error => {
+            console.log("Fehler beim Laden der Daten:" + error);
+        });
+}
 
-            // die umgewandte Json-Datei in JS nutzen
-            .then(data => {
-                //console.log("Flugdaten geladen:", data);
-                let fetchedData = data;
-                generateHTML(fetchedData);
-                filterEco()
-            })   
+function generateHTML(fetchedData) {
+    let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+    let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+    let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
+    let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
+    let checkedEco = document.querySelector('#checkbox-economy').checked;
 
-            .catch(error => {
-                console.log("Fehler beim Laden der Daten:" + error);
-            });
+    fetchedData.forEach((flug) => { // filtern nach Eingabe
 
-        function generateHTML(fetchedData){
-            fetchedData.forEach((flug) => { // filtern nach Eingabe
-                let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
-                let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
+        if (lcFlugStart.includes(flightFrom) && lcFlugZiel.includes(flightTo)) {
+            if (checkedEco) {
+                resultContainer.innerHTML += filteresEco(fetchedData);
+            } else {
+                resultContainer.innerHTML += filteredSearch(fetchedData);
+            }
+        }
+    })
+};
 
-                if(lcFlugStart.includes(flightFrom) && lcFlugZiel.includes(flightTo)) { 
-                    if(checkedEco){
-                        resultContainer.innerHTML += `
-                        <div class="option-container">    
-                            <div class="time">
-                                <div class="leaving-time">10:10
-                                    <div class="leaving-airport">${flug.start}</div>
-                                    <div class="flying-time">Dauer ${flug.flugdauer}</div>
-                                </div>    
+function filteresEco(flug) {
+    return ` <div class="option-container">    
+                        <div class="time">
+                            <div class="leaving-time">10:10
+                                <div class="leaving-airport">${flug.start}</div>
+                                <div class="flying-time">Dauer ${flug.flugdauer}</div>
+                            </div>    
+                        </div>
+                                        
+                        <div class="stops">${flug.stops}</div>
+                                
+                        <div class="arriving-time">12:45
+                            <div class="arriving-airport">${flug.ziel}
+                                <div class="terminal">${flug.terminal}</div>                                    
                             </div>
-                                            
-                            <div class="stops">${flug.stops}</div>
+                        </div>
+
+                        <div class="flight-classes">
+                            <div class="economy">
+                                <span class="bold">Economy</span>
+                                ab
+                                <span class="bold">${flug.preis.economy}</span>
+                                <img src="resources/img/icon/arrow-down.png" alt="">
+                            </div>
+                        </div>
+                    </div>`;
+}
+
+function filteredSearch(flug) {
+    return `<div class="option-container">    
+                        <div class="time">
+                            <div class="leaving-time">10:10
+                                <div class="leaving-airport">${flug.start}</div>
+                                <div class="flying-time">Dauer ${flug.flugdauer}</div>
+                            </div>
                                     
+                            <div class="stops">${flug.stops}</div>
+                            
                             <div class="arriving-time">12:45
                                 <div class="arriving-airport">${flug.ziel}
-                                    <div class="terminal">${flug.terminal}</div>                                    
+                                    <div class="terminal">${flug.terminal}</div>
                                 </div>
                             </div>
-    
-                            <div class="flight-classes">
-                                <div class="economy">
-                                    <span class="bold">Economy</span>
-                                    ab
-                                    <span class="bold">${flug.preis.economy}</span>
-                                    <img src="resources/img/icon/arrow-down.png" alt="">
-                                </div>
-                            </div>
-                        </div>`;  
-                    } else {   
-                    resultContainer.innerHTML += `
-                        <div class="option-container">    
-                            <div class="time">
-                                <div class="leaving-time">10:10
-                                    <div class="leaving-airport">${flug.start}</div>
-                                    <div class="flying-time">Dauer ${flug.flugdauer}</div>
-                                </div>
-                                        
-                                <div class="stops">${flug.stops}</div>
-                                
-                                <div class="arriving-time">12:45
-                                    <div class="arriving-airport">${flug.ziel}
-                                        <div class="terminal">${flug.terminal}</div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
 
-                            <div class="flight-classes">
-                                <div class="economy">
-                                    <span class="bold">Economy</span>
-                                    ab
-                                    <span class="bold">${flug.preis.economy}</span>
-                                    <img src="resources/img/icon/arrow-down.png" alt="">
-                                </div>
-                                <div class="business">
-                                    <span class="bold">Business</span>
-                                    ab
-                                    <span class="bold">${flug.preis.business}</span>
-                                    <img src="resources/img/icon/arrow-down.png" alt="">
-                                </div>
+                        <div class="flight-classes">
+                            <div class="economy">
+                                <span class="bold">Economy</span>
+                                ab
+                                <span class="bold">${flug.preis.economy}</span>
+                                <img src="resources/img/icon/arrow-down.png" alt="">
                             </div>
-                        </div>`;  
-                    }
-                }
-            })
-        };
-    };
-
+                            <div class="business">
+                                <span class="bold">Business</span>
+                                ab
+                                <span class="bold">${flug.preis.business}</span>
+                                <img src="resources/img/icon/arrow-down.png" alt="">
+                            </div>
+                        </div>
+                    </div>`
+}
