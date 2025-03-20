@@ -1,118 +1,3 @@
-// //fluege-json als array Einfachheitshalber
-// const fluege = [
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "Frankfurt (FRA)",
-//         "stops": 0,
-//         "flugdauer": "1h 10m",
-//         "preis": {
-//             "business": "350 EUR",
-//             "economy": "150 EUR"
-//         },
-//         "terminal": "T1"
-//     },
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "Berlin (BER)",
-//         "stops": 0,
-//         "flugdauer": "1h 25m",
-//         "preis": {
-//             "business": "400 EUR",
-//             "economy": "180 EUR"
-//         },
-//         "terminal": "T2"
-//     },
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "München (MUC)",
-//         "stops": 0,
-//         "flugdauer": "1h 05m",
-//         "preis": {
-//             "business": "370 EUR",
-//             "economy": "160 EUR"
-//         },
-//         "terminal": "T1"
-//     },
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "Hamburg (HAM)",
-//         "stops": 1,
-//         "flugdauer": "2h 45m",
-//         "preis": {
-//             "business": "450 EUR",
-//             "economy": "200 EUR"
-//         },
-//         "terminal": "T3"
-//     },
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "Düsseldorf (DUS)",
-//         "stops": 0,
-//         "flugdauer": "1h 20m",
-//         "preis": {
-//             "business": "380 EUR",
-//             "economy": "170 EUR"
-//         },
-//         "terminal": "T1"
-//     },
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "Zürich (ZRH)",
-//         "stops": 0,
-//         "flugdauer": "1h 10m",
-//         "preis": {
-//             "business": "390 EUR",
-//             "economy": "180 EUR"
-//         },
-//         "terminal": "T2"
-//     },
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "Wien (VIE)",
-//         "stops": 1,
-//         "flugdauer": "2h 15m",
-//         "preis": {
-//             "business": "420 EUR",
-//             "economy": "190 EUR"
-//         },
-//         "terminal": "T1"
-//     },
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "Paris (CDG)",
-//         "stops": 0,
-//         "flugdauer": "1h 30m",
-//         "preis": {
-//             "business": "430 EUR",
-//             "economy": "200 EUR"
-//         },
-//         "terminal": "T3"
-//     },
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "Amsterdam (AMS)",
-//         "stops": 0,
-//         "flugdauer": "1h 35m",
-//         "preis": {
-//             "business": "440 EUR",
-//             "economy": "210 EUR"
-//         },
-//         "terminal": "T2"
-//     },
-//     {
-//         "start": "Stuttgart (STR)",
-//         "ziel": "Madrid (MAD)",
-//         "stops": 1,
-//         "flugdauer": "3h 15m",
-//         "preis": {
-//             "business": "500 EUR",
-//             "economy": "250 EUR"
-//         },
-//         "terminal": "T1"
-//     }
-// ] 
-
-
 /* initiieern der tabs */ 
 let tab1 = document.querySelector('#tab1');
 let tab2 = document.querySelector('#tab2');
@@ -166,77 +51,77 @@ function tabWechsel(tab, zahl, img){
 // Event-Listener auf Button setzen
 document.querySelector('#submit-button').addEventListener('click', startSearch); 
 
-function startSearch(){ // Funktion zum Starten der Suche   
-/* initiieren dervariablen für suchfunktion */
-let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
-let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
-let resultContainer = document.querySelector('#fluege-container');
-resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
+    function startSearch(){ // Funktion zum Starten der Suche   
+        /* initiieren dervariablen für suchfunktion */
+        let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+        let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+        let resultContainer = document.querySelector('#fluege-container');
+        resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
 
-// fetch um daten aus json-datei zu erhalten
-fetch('scripts/fluege.json')
-.then(response => {
-    if(!response.ok){
-        throw new Error("Error" + response.status);
-    }
-    return response.json();            
-})
+        // fetch um daten aus json-datei zu erhalten
+        fetch('scripts/fluege.json')
+            .then(response => {
+                if(!response.ok){
+                    throw new Error("Error" + response.status);
+                }
+                return response.json();            
+            })
 
-// die umgewandte Json-Datei in JS nutzen
-.then(data => {
-    //console.log("Flugdaten geladen:", data);
-    let fetchedData = data;
-    // muss hier jetzt resultContainer hin?
+            // die umgewandte Json-Datei in JS nutzen
+            .then(data => {
+                //console.log("Flugdaten geladen:", data);
+                let fetchedData = data;
+                generateHTML(fetchedData);
+            })   
 
-    let filteredEco = document.querySelector('#checkbox-economy').checked;
-    let filteredNonstop = document.querySelector('#checkbox-nonstop').checked;
+            .catch(error => {
+                console.log("Fehler beim Laden der Daten:" + error);
+        });
 
-    if(filteredEco){
-        fetchedData = fetchedData.filter(data)
-    }
-})   
-.catch(error => {
-    console.log("Fehler beim Laden der Daten:" + error);
-});
-
-    fluege.forEach((flug) => {
-        let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
-        let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
-
-        if(lcFlugStart.includes(flightFrom) && lcFlugZiel.includes(flightTo)) { 
-            resultContainer.innerHTML += `
-                <div class="option-container">    
-                    <div class="time">
-                        <div class="leaving-time">10:10
-                            <div class="leaving-airport">${flug.start}</div>
-                            <div class="flying-time">Dauer ${flug.flugdauer}</div>
-                        </div>
-                                
-                        <div class="stops">${flug.stops}</div>
-                        
-                        <div class="arriving-time">12:45
-                            <div class="arriving-airport">${flug.ziel}
-                                <div class="terminal">${flug.terminal}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flight-classes">
-                        <div class="economy">
-                            <span class="bold">Economy</span>
-                            ab
-                            <span class="bold">${flug.preis.economy}</span>
-                            <img src="resources/img/icon/arrow-down.png" alt="">
-                        </div>
-                        <div class="business">
-                            <span class="bold">Business</span>
-                            ab
-                            <span class="bold">${flug.preis.business}</span>
-                            <img src="resources/img/icon/arrow-down.png" alt="">
-                        </div>
-                    </div>
-                </div>`;  
+        function checkboxCheck{
+            
         }
-    });
-};
+
+        function generateHTML(fetchedData){
+            fetchedData.forEach((flug) => { // filtern nach Eingabe
+                let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
+                let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
+
+                if(lcFlugStart.includes(flightFrom) && lcFlugZiel.includes(flightTo)) { 
+                    resultContainer.innerHTML += `
+                        <div class="option-container">    
+                            <div class="time">
+                                <div class="leaving-time">10:10
+                                    <div class="leaving-airport">${flug.start}</div>
+                                    <div class="flying-time">Dauer ${flug.flugdauer}</div>
+                                </div>
+                                        
+                                <div class="stops">${flug.stops}</div>
+                                
+                                <div class="arriving-time">12:45
+                                    <div class="arriving-airport">${flug.ziel}
+                                        <div class="terminal">${flug.terminal}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flight-classes">
+                                <div class="economy">
+                                    <span class="bold">Economy</span>
+                                    ab
+                                    <span class="bold">${flug.preis.economy}</span>
+                                    <img src="resources/img/icon/arrow-down.png" alt="">
+                                </div>
+                                <div class="business">
+                                    <span class="bold">Business</span>
+                                    ab
+                                    <span class="bold">${flug.preis.business}</span>
+                                    <img src="resources/img/icon/arrow-down.png" alt="">
+                                </div>
+                            </div>
+                        </div>`;  
+                }
+            })
+        };
+    };
 
