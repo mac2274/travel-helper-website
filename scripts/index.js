@@ -63,7 +63,8 @@ function startSearch() {
 }
 
 function fetchData() {
-    fetch('scripts/fluege.json')
+    //fetch('scripts/fluege.json') - data in scripts
+    fetch('https://storage01.dbe.academy/fswd/travel-api.php?start=&ziel=&datum=')
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error" + response.status);
