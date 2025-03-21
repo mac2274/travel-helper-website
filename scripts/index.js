@@ -94,11 +94,11 @@ function generateHTML(fetchedData) {
         let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
 
         if (lcFlugStart.includes(flightFrom) && lcFlugZiel.includes(flightTo)) {
-            if (checkedEco) {
-                resultContainer.innerHTML += filteresEco(flug);
-            }
             if (checkedNonStop && flug.stops !== 0) {
                 return;
+            }
+            if (checkedEco) {
+                resultContainer.innerHTML += filteresEco(flug);
             } else {
                 resultContainer.innerHTML += filteredSearch(flug);
             }
