@@ -41,7 +41,7 @@ function tabWechsel(tab, zahl, img) {
         if (i !== zahl) {
             // Definieren einer neuen Variable für den Tabwechsel
             let newTab = document.querySelector('#tab' + i);
-            // Definieren einer neuen Variable für den Bilwechsel
+            // Definieren einer neuen Variable für den Bildwechsel
             let newImg = document.querySelector('#img' + i)
             if (newTab.classList.contains('tab_active')) {
                 newTab.classList.remove('tab_active');
@@ -60,6 +60,14 @@ function startSearch() {
 
     // fetch um daten aus json-datei zu erhalten 
     fetchData();
+}
+
+ // set localStorage
+function setLocalStorage(){
+    localStorage.setItem("von", flightFrom);
+    localStorage.setItem("nach", flightTo);
+
+    let place = localStorage.getItem("von");
 }
 
 function fetchData() {
@@ -209,4 +217,3 @@ function filteredSearch(flug) {
                             </div>
                         </div>
                     </div>`
-}
