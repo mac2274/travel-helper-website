@@ -1,6 +1,5 @@
 // globale Variable
 let resultContainer = document.querySelector('#fluege-container');
-let apiURL = "https://storage01.dbe.academy/fswd/travel-api.php?start=&ziel=&datum=";
 
 // initiieern der tabs
 let tab1 = document.querySelector('#tab1');
@@ -64,12 +63,17 @@ function startSearch() {
 }
 
 function fetchData() {
+    let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+    let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+
+    let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightfrom}&ziel=${flightTo}&datum=13.09.2025`;
+
+
     //fetch('scripts/fluege.json') - Daten in scripts
     fetch('apiURL', {
         method:"GET",
-        body:JSON.stringify(data),
         headers:{
-            "Comtent-Type":"appliication/json"
+             "Comtent-Type":"appliication/json"
         }
     })
         .then(response => {
