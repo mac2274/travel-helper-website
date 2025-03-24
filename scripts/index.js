@@ -64,10 +64,13 @@ function startSearch() {
 
  // set localStorage
 function setLocalStorage(){
-    localStorage.setItem("von", flightFrom);
+    let inputPlace = document.querySelector('#flight-from').value;
+
+    localStorage.setItem("von", inputPlace);
     localStorage.setItem("nach", flightTo);
 
-    let place = localStorage.getItem("von");
+    let place = localStorage.getItem('von');
+    console.log(place);
 }
 
 function fetchData() {
@@ -216,4 +219,5 @@ function filteredSearch(flug) {
                                 <img src="resources/img/icon/arrow-down.png" alt="">
                             </div>
                         </div>
-                    </div>`
+                    </div>`;
+}
