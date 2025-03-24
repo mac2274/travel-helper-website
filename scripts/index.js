@@ -70,11 +70,11 @@ function fetchData() {
 
 
     //fetch('scripts/fluege.json') - Daten in scripts
-    fetch('apiURL', {
-        // method:"GET",
-        // headers:{
-        //      "Comtent-Type":"appliication/json"
-        // }
+    fetch(apiURL, {
+        method:"GET",
+        headers:{
+             "Comtent-Type":"appliication/json"
+        }
     })
         .then(response => {
             if (!response.ok) {
