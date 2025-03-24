@@ -66,15 +66,15 @@ function fetchData() {
     let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
     let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
 
-    let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightfrom}&ziel=${flightTo}&datum=13.09.2025`;
+    let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightFrom}&ziel=${flightTo}&datum=`;
 
 
     //fetch('scripts/fluege.json') - Daten in scripts
     fetch('apiURL', {
-        method:"GET",
-        headers:{
-             "Comtent-Type":"appliication/json"
-        }
+        // method:"GET",
+        // headers:{
+        //      "Comtent-Type":"appliication/json"
+        // }
     })
         .then(response => {
             if (!response.ok) {
