@@ -60,6 +60,7 @@ function startSearch() {
 
     // fetch um daten aus json-datei zu erhalten 
     fetchData();
+    setLocalStorage();
 }
 
  // set localStorage
@@ -67,7 +68,6 @@ function setLocalStorage(){
     let inputPlace = document.querySelector('#flight-from').value;
 
     localStorage.setItem("von", inputPlace);
-    localStorage.setItem("nach", flightTo);
 
     let place = localStorage.getItem('von');
     console.log(place);
