@@ -69,13 +69,14 @@ function startSearch() {
     resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
 
     // fetch um daten aus json-datei zu erhalten 
+    
     fetchData();
     setLocalStorage();
 }
 
 function fetchData() {
-    flightFrom.value; //input-feld wird genommen und vergleichbar gemacht
-    flightTo.value; //input-feld wird genommen und vergleichbar gemacht
+    let flightFrom = document.querySelector('#flight-from').value; //input-feld wird genommen und vergleichbar gemacht
+    let flightTo = document.querySelector('#flight-to').value; //input-feld wird genommen und vergleichbar gemacht
 
     let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightFrom}&ziel=${flightTo}&datum=13.09.2025`;
 
@@ -107,8 +108,8 @@ function generateHTML(fetchedData) {
 
     fetchedData.forEach((flug) => {
         // filtern nach Eingabe
-        let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
         let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
+        let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
 
         if (lcFlugStart.includes(flightFrom) && lcFlugZiel.includes(flightTo)) {
             if (checkedNonStop && flug.stops !== 0) {
