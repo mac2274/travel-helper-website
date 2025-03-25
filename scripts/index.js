@@ -75,10 +75,8 @@ function startSearch() {
 }
 
 function fetchData() {
-    flightFrom.value; //input-feld wird genommen und vergleichbar gemacht
-    flightTo.value; //input-feld wird genommen und vergleichbar gemacht
-
-    let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightFrom}&ziel=${flightTo}&datum=13.09.2025`;
+// flightFrom und FlightTo in Api einbauen
+    let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightFrom.value}&ziel=${flightTo.value}&datum=13.09.2025`;
 
     fetch(apiURL, {
     })
@@ -100,8 +98,8 @@ function fetchData() {
 }
 
 function generateHTML(fetchedData) {
-    let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
-    let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+    flightFrom.value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+    flightTo.value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
 
     let checkedEco = document.querySelector('#checkbox-economy').checked;
     let checkedNonStop = document.querySelector('#checkbox-nonstop').checked;
