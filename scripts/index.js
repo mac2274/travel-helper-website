@@ -75,8 +75,8 @@ function startSearch() {
 }
 
 function fetchData() {
-    let flightFrom = document.querySelector('#flight-from').value; //input-feld wird genommen und vergleichbar gemacht
-    let flightTo = document.querySelector('#flight-to').value; //input-feld wird genommen und vergleichbar gemacht
+    flightFrom.value; //input-feld wird genommen und vergleichbar gemacht
+    flightTo.value; //input-feld wird genommen und vergleichbar gemacht
 
     let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightFrom}&ziel=${flightTo}&datum=13.09.2025`;
 
