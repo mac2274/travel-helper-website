@@ -1,38 +1,22 @@
-document.addEventListener('DOMContentLoaded', setPlace);
-
-// globale Variable
+// --------- QuerySelectoren
 let resultContainer = document.querySelector('#fluege-container');
+let flightFrom = document.querySelector('#flight-from');
+let flightTo = document.querySelector('#flight-to');
 
-// initiieern der tabs
+// Tabs
 let tab1 = document.querySelector('#tab1');
 let tab2 = document.querySelector('#tab2');
 let tab3 = document.querySelector('#tab3');
 let tab4 = document.querySelector('#tab4');
-
+// Icons
 let img1 = document.querySelector('#img1');
 let img2 = document.querySelector('#img2');
 let img3 = document.querySelector('#img3');
 let img4 = document.querySelector('#img4');
 
-// event-listener hinzufügen 
-tab1.addEventListener('click', () => {
-    tabWechsel(tab1, 1, img1);
-})
-
-tab2.addEventListener('click', () => {
-    tabWechsel(tab2, 2, img2);
-    useFilter(img2);
-})
-
-tab3.addEventListener('click', () => {
-    tabWechsel(tab3, 3, img3);
-    useFilter(img3);
-})
-
-tab4.addEventListener('click', () => {
-    tabWechsel(tab4, 4, img4);
-    useFilter(img4);
-})
+// --------- Eventlistener  
+document.addEventListener('DOMContentLoaded', init);
+document.querySelector('#submit-button').addEventListener('click', startSearch);
 
 // funktion zum tab-sprung 
 function tabWechsel(tab, zahl, img) {
@@ -53,8 +37,30 @@ function tabWechsel(tab, zahl, img) {
     }
 }
 
-// Event-Listener auf Button setzen
-document.querySelector('#submit-button').addEventListener('click', startSearch);
+// Hilfsfunktionen
+tab1.addEventListener('click', () => {
+    tabWechsel(tab1, 1, img1);
+})
+
+tab2.addEventListener('click', () => {
+    tabWechsel(tab2, 2, img2);
+    useFilter(img2);
+})
+
+tab3.addEventListener('click', () => {
+    tabWechsel(tab3, 3, img3);
+    useFilter(img3);
+})
+
+tab4.addEventListener('click', () => {
+    tabWechsel(tab4, 4, img4);
+    useFilter(img4);
+})
+
+function init(){
+    flightFrom.value = localStorage.getItem('von');
+    flightTo.value = localStorage.getItem('nach');
+}
 
 function startSearch() {
     // Funktion zum Starten der Suche   
@@ -65,29 +71,16 @@ function startSearch() {
     setLocalStorage();
 }
 
- // set localStorage
-function setLocalStorage(){
-    let inputPlace = document.querySelector('#flight-from').value;
 
-    localStorage.setItem("von", inputPlace);
 
-    //console.log(place);
-}
 
-function setPlace(){
-    let newPlace = document.querySelector('#flight-from');
-    newPlace = localStorage.getItem('von');
-
-}
 
 function fetchData() {
-    let flightFrom = document.querySelector('#flight-from').value; //input-feld wird genommen und vergleichbar gemacht
-    let flightTo = document.querySelector('#flight-to').value; //input-feld wird genommen und vergleichbar gemacht
+    flightFrom.value; //input-feld wird genommen und vergleichbar gemacht
+    flightTo.value; //input-feld wird genommen und vergleichbar gemacht
 
     let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightFrom}&ziel=${flightTo}&datum=13.09.2025`;
 
-
-    //fetch('scripts/fluege.json') - Daten in scripts
     fetch(apiURL, {
     })
         .then(response => {
@@ -108,8 +101,8 @@ function fetchData() {
 }
 
 function generateHTML(fetchedData) {
-    let flightFrom = document.querySelector('#flight-from').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
-    let flightTo = document.querySelector('#flight-to').value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+    flightFrom.value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
+    flightTo.value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
 
     let checkedEco = document.querySelector('#checkbox-economy').checked;
     let checkedNonStop = document.querySelector('#checkbox-nonstop').checked;
@@ -131,35 +124,6 @@ function generateHTML(fetchedData) {
         }
     })
 }
-
-function filteresEco(flug) {
-    return ` <div class="option-container">    
-                        <div class="time">
-                            <div class="leaving-time">10:10
-                                <div class="leaving-airport">${flug.start}</div>
-                                <div class="flying-time">Dauer ${flug.flugdauer}</div>
-                            </div>    
-                        </div>
-                                        
-                        <div class="stops">${flug.stops}</div>
-                                
-                        <div class="arriving-time">12:45
-                            <div class="arriving-airport">${flug.ziel}
-                                <div class="terminal">${flug.terminal}</div>                                    
-                            </div>
-                        </div>
-
-                        <div class="flight-classes">
-                            <div class="economy">
-                                <span class="bold">Economy</span>
-                                ab
-                                <span class="bold">${flug.preis.economy}</span>
-                                <img src="resources/img/icon/arrow-down.png" alt="">
-                            </div>
-                        </div>
-                    </div>`;
-}
-
 function filteredNonStop(flug) {
     return `  <div class="option-container">    
                     <div class="time">
@@ -194,7 +158,33 @@ function filteredNonStop(flug) {
                 </div>;
             `;
 }
+function filteresEco(flug) {
+    return ` <div class="option-container">    
+                        <div class="time">
+                            <div class="leaving-time">10:10
+                                <div class="leaving-airport">${flug.start}</div>
+                                <div class="flying-time">Dauer ${flug.flugdauer}</div>
+                            </div>    
+                        </div>
+                                        
+                        <div class="stops">${flug.stops}</div>
+                                
+                        <div class="arriving-time">12:45
+                            <div class="arriving-airport">${flug.ziel}
+                                <div class="terminal">${flug.terminal}</div>                                    
+                            </div>
+                        </div>
 
+                        <div class="flight-classes">
+                            <div class="economy">
+                                <span class="bold">Economy</span>
+                                ab
+                                <span class="bold">${flug.preis.economy}</span>
+                                <img src="resources/img/icon/arrow-down.png" alt="">
+                            </div>
+                        </div>
+                    </div>`;
+}
 function filteredSearch(flug) {
     return `<div class="option-container">    
                         <div class="time">
@@ -227,4 +217,10 @@ function filteredSearch(flug) {
                             </div>
                         </div>
                     </div>`;
+}
+
+ // set localStorage
+ function setLocalStorage(){
+    localStorage.setItem('von', flightFrom.value);
+    localStorage.setItem('nach', flightTo.value);
 }
