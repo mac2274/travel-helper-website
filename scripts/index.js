@@ -18,8 +18,7 @@ let img4 = document.querySelector('#img4');
 document.addEventListener('DOMContentLoaded', init);
 document.querySelector('#submit-button').addEventListener('click', startSearch);
 
-// Hilfsfunktionen
-
+// --- Hilfsfunktionen
 // Funktion zum Tab-Sprung 
 function tabWechsel(tab, zahl, img) {
     tab.classList.toggle('tab_active');
@@ -75,8 +74,7 @@ function getLocalStorageTo(){
 
 // Suchfunktion starten
 function startSearch() {
-    // Funktion zum Starten der Suche   
-    resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
+    resultContainer.innerHTML = ''; // evlt. alte Suchergebnisse wird entfernt, Neue Suche kann starten 
 
     // fetch um daten aus json-datei zu erhalten 
     fetchData();
@@ -169,6 +167,7 @@ function filteredNonStop(flug) {
                 </div>;
             `;
 }
+
 function filteresEco(flug) {
     return ` <div class="option-container">    
                         <div class="time">
@@ -194,8 +193,10 @@ function filteresEco(flug) {
                                 <img src="resources/img/icon/arrow-down.png" alt="">
                             </div>
                         </div>
-                    </div>`;
+                    </div>
+                `;
 }
+
 function filteredSearch(flug) {
     return `<div class="option-container">    
                         <div class="time">
@@ -227,7 +228,8 @@ function filteredSearch(flug) {
                                 <img src="resources/img/icon/arrow-down.png" alt="">
                             </div>
                         </div>
-                    </div>`;
+                    </div>
+                `;
 }
 
  // set localStorage
