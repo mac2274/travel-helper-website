@@ -1,4 +1,4 @@
-// --------- QuerySelectoren
+// --------- QuerySelector
 let resultContainer = document.querySelector('#fluege-container');
 let flightFrom = document.querySelector('#flight-from');
 let flightTo = document.querySelector('#flight-to');
@@ -18,7 +18,9 @@ let img4 = document.querySelector('#img4');
 document.addEventListener('DOMContentLoaded', init);
 document.querySelector('#submit-button').addEventListener('click', startSearch);
 
-// funktion zum tab-sprung 
+// Hilfsfunktionen
+
+// Funktion zum Tab-Sprung 
 function tabWechsel(tab, zahl, img) {
     tab.classList.toggle('tab_active');
     img.classList.toggle('icon_filter');
@@ -37,7 +39,7 @@ function tabWechsel(tab, zahl, img) {
     }
 }
 
-// Hilfsfunktionen
+// Tabs
 tab1.addEventListener('click', () => {
     tabWechsel(tab1, 1, img1);
 })
@@ -57,11 +59,21 @@ tab4.addEventListener('click', () => {
     useFilter(img4);
 })
 
+// ------------- Funktionen
 function init(){
+    getLocalStorageFrom();
+    getLocalStorageTo();
+}
+
+function getLocalStorageFrom(){
     flightFrom.value = localStorage.getItem('von');
+}
+
+function getLocalStorageTo(){
     flightTo.value = localStorage.getItem('nach');
 }
 
+// Suchfunktion starten
 function startSearch() {
     // Funktion zum Starten der Suche   
     resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
@@ -71,10 +83,7 @@ function startSearch() {
     setLocalStorage();
 }
 
-
-
-
-
+// api fetchen
 function fetchData() {
     flightFrom.value; //input-feld wird genommen und vergleichbar gemacht
     flightTo.value; //input-feld wird genommen und vergleichbar gemacht
@@ -100,6 +109,7 @@ function fetchData() {
         })
 }
 
+// HTML setzen
 function generateHTML(fetchedData) {
     flightFrom.value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
     flightTo.value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
@@ -124,6 +134,7 @@ function generateHTML(fetchedData) {
         }
     })
 }
+
 function filteredNonStop(flug) {
     return `  <div class="option-container">    
                     <div class="time">
