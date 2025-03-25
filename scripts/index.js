@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', setPlace);
+
 // globale Variable
 let resultContainer = document.querySelector('#fluege-container');
 
@@ -69,8 +71,13 @@ function setLocalStorage(){
 
     localStorage.setItem("von", inputPlace);
 
-    let place = localStorage.getItem('von');
-    console.log(place);
+    //console.log(place);
+}
+
+function setPlace(){
+    let newPlace = document.querySelector('#flight-from');
+    newPlace = localStorage.getItem('von');
+
 }
 
 function fetchData() {
