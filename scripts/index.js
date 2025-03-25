@@ -119,8 +119,8 @@ function generateHTML(fetchedData) {
 
     fetchedData.forEach((flug) => {
         // filtern nach Eingabe
-        let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
         let lcFlugStart = flug.start.toLowerCase(); //Feld im Array wird vergleichbar gemacht
+        let lcFlugZiel = flug.ziel.toLowerCase(); //Feld im Array wird vergleichbar gemacht  
 
         if (lcFlugStart.includes(flightFrom) && lcFlugZiel.includes(flightTo)) {
             if (checkedNonStop && flug.stops !== 0) {
