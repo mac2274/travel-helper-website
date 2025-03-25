@@ -1,7 +1,7 @@
 // --------- QuerySelector
-let resultContainer = document.querySelector('#fluege-container');
 let flightFrom = document.querySelector('#flight-from');
 let flightTo = document.querySelector('#flight-to');
+let resultContainer = document.querySelector('#fluege-container');
 
 // Tabs
 let tab1 = document.querySelector('#tab1');
