@@ -1,21 +1,43 @@
-document.addEventListener('DOMContentLoaded', init);
-
-// globale Variable
+// ---------- QuerySelectors 
 let resultContainer = document.querySelector('#fluege-container');
 let flightFrom = document.querySelector('#flight-from'); //input-feld wird genommen und vergleichbar gemacht
 let flightTo = document.querySelector('#flight-to'); //input-feld wird genommen und vergleichbar gemacht
-// initiieern der tabs
+
+// Tabs
 let tab1 = document.querySelector('#tab1');
 let tab2 = document.querySelector('#tab2');
 let tab3 = document.querySelector('#tab3');
 let tab4 = document.querySelector('#tab4');
-
+// Imgages
 let img1 = document.querySelector('#img1');
 let img2 = document.querySelector('#img2');
 let img3 = document.querySelector('#img3');
 let img4 = document.querySelector('#img4');
 
-// event-listener hinzufügen 
+// ------------- EventListener
+document.addEventListener('DOMContentLoaded', init); // Initialisieren nach Laden der Seite
+document.querySelector('#submit-button').addEventListener('click', startSearch); // Eventlistener nach Absenden der Suche
+
+// Hilfsfunktionen
+// Funktion zum Tabsprung 
+function tabWechsel(tab, zahl, img) {
+    tab.classList.toggle('tab_active');
+    img.classList.toggle('icon_filter');
+
+    for (let i = 1; i < 5; i++) {
+        if (i !== zahl) {
+            // Definieren einer neuen Variable für den Tabwechsel
+            let newTab = document.querySelector('#tab' + i);
+            // Definieren einer neuen Variable für den Bildwechsel
+            let newImg = document.querySelector('#img' + i)
+            if (newTab.classList.contains('tab_active')) {
+                newTab.classList.remove('tab_active');
+                newImg.classList.remove('icon_filter');
+            }
+        }
+    }
+}
+// unterstützende Hilfsfunktionen füt Tabsprung
 tab1.addEventListener('click', () => {
     tabWechsel(tab1, 1, img1);
 })
@@ -35,28 +57,13 @@ tab4.addEventListener('click', () => {
     useFilter(img4);
 })
 
-// funktion zum tab-sprung 
-function tabWechsel(tab, zahl, img) {
-    tab.classList.toggle('tab_active');
-    img.classList.toggle('icon_filter');
-
-    for (let i = 1; i < 5; i++) {
-        if (i !== zahl) {
-            // Definieren einer neuen Variable für den Tabwechsel
-            let newTab = document.querySelector('#tab' + i);
-            // Definieren einer neuen Variable für den Bildwechsel
-            let newImg = document.querySelector('#img' + i)
-            if (newTab.classList.contains('tab_active')) {
-                newTab.classList.remove('tab_active');
-                newImg.classList.remove('icon_filter');
-            }
-        }
-    }
+// ---------------- Funktionen
+function init(){
+    flightFrom.value = localStorage.getItem('von');
+    flightTo.value = localStorage.getItem('nach');
 }
 
-// Event-Listener auf Button setzen
-document.querySelector('#submit-button').addEventListener('click', startSearch);
-
+// Funktion nach betätigen des Buttons
 function startSearch() {
     // Funktion zum Starten der Suche   
     resultContainer.innerHTML = ''; // Suchergebniss wird entfernt, Neue Suche kann starten 
@@ -66,25 +73,12 @@ function startSearch() {
     setLocalStorage();
 }
 
- // set localStorage
-function setLocalStorage(){
-    localStorage.setItem("von", flightFrom.value);
-    localStorage.setItem("nach", flightTo.value);
-}
-
-function init(){
-    flightFrom.value = localStorage.getItem('von');
-    flightTo.value = localStorage('nach');
-}
-
 function fetchData() {
-    let flightFrom = document.querySelector('#flight-from').value; //input-feld wird genommen und vergleichbar gemacht
-    let flightTo = document.querySelector('#flight-to').value; //input-feld wird genommen und vergleichbar gemacht
+    flightFrom.value; //input-feld wird genommen und vergleichbar gemacht
+    flightTo.value; //input-feld wird genommen und vergleichbar gemacht
 
     let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightFrom}&ziel=${flightTo}&datum=13.09.2025`;
 
-
-    //fetch('scripts/fluege.json') - Daten in scripts
     fetch(apiURL, {
     })
         .then(response => {
@@ -224,4 +218,10 @@ function filteredSearch(flug) {
                             </div>
                         </div>
                     </div>`;
+}
+
+ // set localStorage
+ function setLocalStorage(){
+    localStorage.setItem("von", flightFrom.value);
+    localStorage.setItem("nach", flightTo.value);
 }
