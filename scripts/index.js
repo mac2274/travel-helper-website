@@ -37,7 +37,7 @@ function tabWechsel(tab, zahl, img) {
         }
     }
 }
-// unterstützende Hilfsfunktionen füt Tabsprung
+
 tab1.addEventListener('click', () => {
     tabWechsel(tab1, 1, img1);
 })
@@ -74,6 +74,7 @@ function startSearch() {
     setLocalStorage();
 }
 
+//Funktion um Daten aus der Api zu erhalten
 function fetchData() {
 // flightFrom und FlightTo in Api einbauen
     let apiURL = `https://storage01.dbe.academy/fswd/travel-api.php?start=${flightFrom.value}&ziel=${flightTo.value}&datum=13.09.2025`;
@@ -97,6 +98,7 @@ function fetchData() {
         })
 }
 
+// Funktion um entsprechenden HTML zu erzeugen
 function generateHTML(fetchedData) {
     flightFrom.value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
     flightTo.value.toLowerCase(); //input-feld wird genommen und vergleichbar gemacht
@@ -121,6 +123,7 @@ function generateHTML(fetchedData) {
         }
     })
 }
+
 
 function filteresEco(flug) {
     return ` <div class="option-container">    
@@ -220,7 +223,7 @@ function filteredSearch(flug) {
 }
 
  // set localStorage
- function setLocalStorage(){
+function setLocalStorage(){
     localStorage.setItem("von", flightFrom.value);
     localStorage.setItem("nach", flightTo.value);
 }
